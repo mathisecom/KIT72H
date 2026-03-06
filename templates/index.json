@@ -12,6 +12,12 @@
     "featured_product_cqdxpP": {
       "type": "featured-product",
       "blocks": {
+        "liquid_xrwBGz": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"product-info__block-item\" data-block-id=\"liquid_VYgyhr\" data-block-type=\"liquid\"><div class=\"product-info__liquid\">\n              <div class=\"product-info__block-item\" data-block-id=\"liquid_ayckTY\" data-block-type=\"liquid\">\n  <div class=\"product-info__liquid\">\n    <div class=\"main-product__block main-product__block-custom_liquid\">\n      <div class=\"m-product-text\">\n        <div class=\"main-product__block main-product__block-custom_liquid\">\n          <div class=\"m-product-text\">\n            <div class=\"main-product__block main-product__block-custom_liquid\">\n              <div class=\"m-product-text\">\n                <div class=\"product-info__liquid\">\n                  <a class=\"image-size\" style=\"display: flex; align-items: center; gap: 8px;\">\n                    <img src=\"https://cdn.shopify.com/s/files/1/0776/3751/7627/files/avis.png?v=1687213619\" alt=\"Étoiles\" width=\"63\" height=\"13\">\n                    <span class=\"text-size\">Noté <b>4,8/5</b> sur la base de 3,380 avis</span>\n                  </a>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n            </div></div>"
+          }
+        },
         "title_mK8hgw": {
           "type": "title",
           "settings": {
@@ -72,6 +78,7 @@
         }
       },
       "block_order": [
+        "liquid_xrwBGz",
         "title_mK8hgw",
         "price_EbJxN3",
         "variant_picker_zNV4wj",

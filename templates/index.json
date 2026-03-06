@@ -83,8 +83,8 @@
           "settings": {
             "icon": "none",
             "icon_width": 20,
-            "title": "Title",
-            "content": "<p>Share some content to your customers about your products.</p>",
+            "title": "Livraison & Retour",
+            "content": "<p>🚚 Livraison : GRATUITE</p><p>⏰ Délais : France et Europe : expédition en 48h, livraison 5 à 7 jours ouvrable</p><p>🔄 Retours et échanges : Retours GRATUITS sous 14 jours Remboursement ou échange selon votre choix</p>",
             "page": ""
           }
         }

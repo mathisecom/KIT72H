@@ -9,6 +9,117 @@
  */
 {
   "sections": {
+    "featured_product_cqdxpP": {
+      "type": "featured-product",
+      "blocks": {
+        "title_mK8hgw": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "badges_igqDf7": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_EbJxN3": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_P8maLg": {
+          "type": "rating",
+          "settings": {
+            "show_empty": false
+          }
+        },
+        "description_kMcKYd": {
+          "type": "description",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "collapse_content": false
+          }
+        },
+        "variant_picker_zNV4wj": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_8f8T9Q": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_Nw8bFA": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "collapsible_text_j7wRQF": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_4tYhVA": {
+          "type": "collapsible_text",
+          "settings": {
+            "icon": "none",
+            "icon_width": 20,
+            "title": "Title",
+            "content": "<p>Share some content to your customers about your products.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title_mK8hgw",
+        "badges_igqDf7",
+        "price_EbJxN3",
+        "rating_P8maLg",
+        "description_kMcKYd",
+        "variant_picker_zNV4wj",
+        "quantity_selector_8f8T9Q",
+        "buy_buttons_Nw8bFA",
+        "collapsible_text_j7wRQF",
+        "collapsible_text_4tYhVA"
+      ],
+      "name": "Featured product",
+      "settings": {
+        "full_width": true,
+        "product": "",
+        "desktop_media_width": 55,
+        "desktop_media_layout": "carousel_thumbnails_left",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "floating_dots",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -64,6 +175,7 @@
     }
   },
   "order": [
+    "featured_product_cqdxpP",
     "faq"
   ]
 }

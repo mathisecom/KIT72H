@@ -409,11 +409,11 @@
         "link_text": "",
         "background": "",
         "background_gradient": "",
-        "text_color": "",
+        "text_color": "#183f33",
         "heading_color": "",
         "heading_gradient": "",
-        "testimonial_card_background": "",
-        "testimonial_card_text_color": ""
+        "testimonial_card_background": "#f9faf9",
+        "testimonial_card_text_color": "#183f33"
       }
     },
     "faq": {

@@ -447,7 +447,7 @@
         "166442457738b23caf-2"
       ],
       "settings": {
-        "full_width": false,
+        "full_width": true,
         "subheading": "",
         "title": "Questions Fréquentes",
         "content": "",
@@ -457,9 +457,9 @@
         "button_text": "",
         "button_url": "",
         "text_position": "center",
-        "background": "#ffffff",
+        "background": "#f9faf9",
         "background_gradient": "",
-        "text_color": "",
+        "text_color": "#183f33",
         "heading_color": "",
         "heading_gradient": "",
         "button_background": "",

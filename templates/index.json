@@ -163,6 +163,12 @@
             "show_taxes_notice": false
           }
         },
+        "liquid_7Necbe": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
         "variant_picker_zNV4wj": {
           "type": "variant_picker",
           "settings": {
@@ -239,6 +245,7 @@
         "liquid_xrwBGz",
         "title_mK8hgw",
         "price_EbJxN3",
+        "liquid_7Necbe",
         "variant_picker_zNV4wj",
         "quantity_selector_8f8T9Q",
         "liquid_di9ANb",

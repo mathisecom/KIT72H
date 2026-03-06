@@ -462,12 +462,20 @@
             "title": "Où conserver son kit d'urgence ?",
             "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
           }
+        },
+        "item_kPwFCy": {
+          "type": "item",
+          "settings": {
+            "title": "Ce kit est-il utile en ville ?",
+            "content": "<p>Absolument. Les coupures d'électricité, les crues urbaines ou les pannes de réseau touchent autant les villes que les zones rurales. En ville, les ascenseurs, pompes à eau et supermarchés s'arrêtent aussi pendant une panne prolongée.</p>"
+          }
         }
       },
       "block_order": [
         "166442457738b23caf-0",
         "166442457738b23caf-1",
-        "166442457738b23caf-2"
+        "166442457738b23caf-2",
+        "item_kPwFCy"
       ],
       "settings": {
         "full_width": true,

@@ -1,0 +1,574 @@
+{% comment %}
+  Section : Features 4K - Image + Liste d'arguments
+  Intégration : Sections > Ajouter > Importer ce fichier
+{% endcomment %}
+
+{{ 'section-features-4k.css' | asset_url | stylesheet_tag }}
+
+<section class="features-4k" style="background-color: {{ section.settings.background_color }};">
+  <div class="features-4k__container">
+
+    {%- comment %} COLONNE GAUCHE : IMAGE {%- endcomment %}
+    <div class="features-4k__media">
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          width="800"
+          height="600"
+          loading="lazy"
+          class="features-4k__img"
+        >
+      {%- else -%}
+        {{ 'image' | placeholder_svg_tag: 'features-4k__img features-4k__img--placeholder' }}
+      {%- endif -%}
+
+      {%- if section.settings.show_badge -%}
+        <div class="features-4k__badge">
+          <span class="features-4k__badge-top">{{ section.settings.badge_line1 }}</span>
+          <span class="features-4k__badge-bottom">{{ section.settings.badge_line2 }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment %} COLONNE DROITE : TEXTE + ARGUMENTS {%- endcomment %}
+    <div class="features-4k__content">
+      {%- if section.settings.heading != blank -%}
+        <{{ section.settings.heading_tag }} class="features-4k__heading">
+          {{ section.settings.heading }}
+        </{{ section.settings.heading_tag }}>
+      {%- endif -%}
+
+      <ul class="features-4k__list">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'feature' -%}
+              <li class="features-4k__item" {{ block.shopify_attributes }}>
+                <div class="features-4k__icon-wrap" style="border-color: {{ section.settings.accent_color }}; color: {{ section.settings.accent_color }};">
+                  {%- if block.settings.icon_svg != blank -%}
+                    <span class="features-4k__icon">{{ block.settings.icon_svg }}</span>
+                  {%- elsif block.settings.icon_text != blank -%}
+                    <span class="features-4k__icon features-4k__icon--text">{{ block.settings.icon_text }}</span>
+                  {%- else -%}
+                    <span class="features-4k__icon features-4k__icon--text">★</span>
+                  {%- endif -%}
+                </div>
+                <div class="features-4k__item-body">
+                  {%- if block.settings.title != blank -%}
+                    <span class="features-4k__item-title">{{ block.settings.title }}&nbsp;</span>
+                  {%- endif -%}
+                  {%- if block.settings.description != blank -%}
+                    <span class="features-4k__item-desc">{{ block.settings.description }}</span>
+                  {%- endif -%}
+                </div>
+              </li>
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ── VARIABLES ── */
+  #shopify-section-{{ section.id }} {
+    --accent:      {{ section.settings.accent_color }};
+    --bg:          {{ section.settings.background_color }};
+    --heading-col: {{ section.settings.heading_color }};
+    --text-col:    {{ section.settings.text_color }};
+    --title-col:   {{ section.settings.title_color }};
+    --radius:      {{ section.settings.image_radius }}px;
+    --gap:         {{ section.settings.columns_gap }}px;
+    --pad-v:       {{ section.settings.section_padding_v }}px;
+    --pad-h:       {{ section.settings.section_padding_h }}px;
+  }
+
+  /* ── SECTION ── */
+  #shopify-section-{{ section.id }} .features-4k {
+    padding: var(--pad-v) var(--pad-h);
+    background-color: var(--bg);
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__container {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    {% if section.settings.reverse_columns %}flex-direction: row-reverse;{% endif %}
+  }
+
+  /* ── IMAGE ── */
+  #shopify-section-{{ section.id }} .features-4k__media {
+    position: relative;
+    flex: 0 0 {{ section.settings.image_width }}%;
+    max-width: {{ section.settings.image_width }}%;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__img--placeholder {
+    aspect-ratio: 4/3;
+    background: #ddd;
+  }
+
+  /* ── BADGE ── */
+  #shopify-section-{{ section.id }} .features-4k__badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: {{ section.settings.badge_bg }};
+    color: {{ section.settings.badge_color }};
+    border-radius: 6px;
+    padding: 5px 9px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+    font-family: inherit;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__badge-top {
+    font-size: {{ section.settings.badge_size_top }}px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__badge-bottom {
+    font-size: {{ section.settings.badge_size_bottom }}px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── CONTENU ── */
+  #shopify-section-{{ section.id }} .features-4k__content {
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__heading {
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: 700;
+    color: var(--heading-col);
+    margin: 0 0 {{ section.settings.heading_margin_bottom }}px;
+    line-height: 1.25;
+  }
+
+  /* ── LISTE ── */
+  #shopify-section-{{ section.id }} .features-4k__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.items_gap }}px;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  /* ── ICÔNE ── */
+  #shopify-section-{{ section.id }} .features-4k__icon-wrap {
+    flex-shrink: 0;
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__icon svg {
+    width: 55%;
+    height: 55%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__icon--text {
+    font-size: {{ section.settings.icon_font_size }}px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  /* ── TEXTE ITEM ── */
+  #shopify-section-{{ section.id }} .features-4k__item-body {
+    font-size: {{ section.settings.text_size }}px;
+    color: var(--text-col);
+    line-height: 1.5;
+    padding-top: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__item-title {
+    font-weight: 700;
+    color: var(--title-col);
+  }
+
+  #shopify-section-{{ section.id }} .features-4k__item-desc {
+    color: var(--text-col);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media screen and (max-width: {{ section.settings.breakpoint }}px) {
+    #shopify-section-{{ section.id }} .features-4k__container {
+      flex-direction: column;
+      {% if section.settings.mobile_image_bottom %}flex-direction: column-reverse;{% endif %}
+    }
+    #shopify-section-{{ section.id }} .features-4k__media {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .features-4k__heading {
+      font-size: {{ section.settings.heading_size | times: 0.78 | round }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Features 4K",
+  "tag": "section",
+  "class": "section-features-4k",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🖼️ Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur max de la section (px)",
+      "min": 800,
+      "max": 1600,
+      "step": 20,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding_v",
+      "label": "Espacement vertical (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_h",
+      "label": "Espacement horizontal (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Espace entre les colonnes (px)",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Largeur de l'image (%)",
+      "min": 30,
+      "max": 60,
+      "step": 2,
+      "default": 44
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_columns",
+      "label": "Inverser les colonnes (image à droite)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_image_bottom",
+      "label": "Image en bas sur mobile",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "breakpoint",
+      "label": "Breakpoint mobile (px)",
+      "min": 480,
+      "max": 1024,
+      "step": 16,
+      "default": 768
+    },
+    {
+      "type": "header",
+      "content": "🎨 Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#f5f0e8"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur accent (icônes)",
+      "default": "#2e8b57"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Couleur du titre principal",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur des titres des arguments",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte des descriptions",
+      "default": "#555555"
+    },
+    {
+      "type": "header",
+      "content": "🖼️ Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image principale"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Arrondi de l'image (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "🏷️ Badge sur l'image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher le badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_line1",
+      "label": "Texte ligne 1 du badge",
+      "default": "4K"
+    },
+    {
+      "type": "text",
+      "id": "badge_line2",
+      "label": "Texte ligne 2 du badge",
+      "default": "ULTRA HD"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Couleur de fond du badge",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Couleur du texte du badge",
+      "default": "#f5c518"
+    },
+    {
+      "type": "range",
+      "id": "badge_size_top",
+      "label": "Taille texte ligne 1 du badge (px)",
+      "min": 10,
+      "max": 36,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "badge_size_bottom",
+      "label": "Taille texte ligne 2 du badge (px)",
+      "min": 6,
+      "max": 18,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "header",
+      "content": "✍️ Titre principal"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre principal",
+      "default": "Admirez vos photos et vidéos en 4K. De jour comme de nuit."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Balise HTML du titre",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Taille du titre (px)",
+      "min": 18,
+      "max": 56,
+      "step": 1,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom",
+      "label": "Espace sous le titre (px)",
+      "min": 8,
+      "max": 60,
+      "step": 2,
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "📋 Arguments"
+    },
+    {
+      "type": "range",
+      "id": "items_gap",
+      "label": "Espace entre les arguments (px)",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Taille du texte (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Taille des icônes (px)",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "icon_font_size",
+      "label": "Taille police icône texte (px)",
+      "min": 8,
+      "max": 24,
+      "step": 1,
+      "default": 13
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Argument",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre (en gras)",
+          "default": "Des images nettes en toutes circonstances :"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Résolution 4K Ultra HD pour des photos et vidéos d'une clarté exceptionnelle."
+        },
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icône SVG (optionnel)",
+          "info": "Collez du code SVG. Laissez vide pour utiliser le texte ci-dessous."
+        },
+        {
+          "type": "text",
+          "id": "icon_text",
+          "label": "Texte icône (si pas de SVG)",
+          "default": "4K",
+          "info": "Utilisé si aucun SVG n'est renseigné. Ex : 4K, ★, 🌙"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features 4K",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Des images nettes en toutes circonstances :",
+            "description": "Résolution 4K Ultra HD pour des photos et vidéos d'une clarté exceptionnelle.",
+            "icon_text": "4K"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Vision nocturne invisible :",
+            "description": "Grâce à l'infrarouge 940 nm, capturez des images haute résolution sans flash ni lueur visible.",
+            "icon_svg": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/><circle cx='12' cy='12' r='3'/></svg>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Détection de mouvement intelligente :",
+            "description": "La caméra de chasse se déclenche dès qu'un animal ou un mouvement est détecté.",
+            "icon_svg": "<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><circle cx='12' cy='12' r='3'/><path d='M6.343 6.343a8 8 0 1 0 11.314 11.314A8 8 0 0 0 6.343 6.343z'/><path d='M2 12h2M20 12h2M12 2v2M12 20v2'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -209,6 +209,7 @@
         },
         "collapsible_text_j7wRQF": {
           "type": "collapsible_text",
+          "disabled": true,
           "settings": {
             "icon": "none",
             "icon_width": 20,
@@ -226,6 +227,12 @@
             "content": "<p>🚚 Livraison : GRATUITE</p><p>⏰ Délais : France et Europe : expédition en 48h, livraison 5 à 7 jours ouvrable</p><p>🔄 Retours et échanges : Retours GRATUITS sous 14 jours Remboursement ou échange selon votre choix</p>",
             "page": ""
           }
+        },
+        "liquid_wQwjyj": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<style>\n  .kit-b__card {\n    background-color: #e8f5ee;\n    border: 3px solid #2d6a4f;\n    border-radius: 18px;\n    padding: 28px 32px;\n    margin: 8px 0;\n  }\n  .kit-b__title-wrap { text-align: center; margin-bottom: 24px; }\n  .kit-b__title {\n    display: inline-block;\n    background: #2d6a4f;\n    color: #fff;\n    font-size: 18px;\n    font-weight: 800;\n    text-transform: uppercase;\n    padding: 10px 24px;\n    border-radius: 50px;\n    margin: 0;\n  }\n  .kit-b__body { display: flex; align-items: center; gap: 32px; }\n  .kit-b__media { flex: 0 0 38%; max-width: 38%; }\n  .kit-b__media img { width: 100%; height: auto; object-fit: contain; border-radius: 8px; }\n  .kit-b__list { flex: 1; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }\n  .kit-b__item { display: flex; gap: 8px; font-size: 14px; font-weight: 500; color: #1a1a1a; line-height: 1.45; }\n  .kit-b__qty { font-weight: 700; flex-shrink: 0; }\n  @media (max-width: 640px) {\n    .kit-b__body { flex-direction: column; }\n    .kit-b__media { flex: 0 0 75%; max-width: 75%; margin: 0 auto; }\n    .kit-b__title { font-size: 13px; }\n  }\n</style>\n\n<div class=\"kit-b__card\">\n  <div class=\"kit-b__title-wrap\">\n    <p class=\"kit-b__title\">CONTENU DE VOTRE KIT DE SURVIE 72H</p>\n  </div>\n  <div class=\"kit-b__body\">\n    <div class=\"kit-b__media\">\n      <img src=\"{{ product.featured_image | image_url: width: 600 }}\" alt=\"{{ product.title }}\">\n    </div>\n    <ul class=\"kit-b__list\">\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Sac à dos tactique 25L</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Lanterne LED</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Système de filtration d'eau 4000L</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Allume feu</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Corde Paracord Ø 4 mm, 25 m</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Radio d'urgence 10000mAh, Solaire, avec manivelle, multifonctions : Lampe, SOS, Power bank, USB...Etc</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">4 x</span><span>Bâtons lumineux vert autonomie 12h</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">10 x</span><span>Barres de rations de survie 12000 calories avec durée de consommation de 20 ans</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Couteau avec foureau</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>Trousse de premiers secours (108 pièces)</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">2 x</span><span>Couvertures de survie</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">2 x</span><span>Sifflets</span></li>\n      <li class=\"kit-b__item\"><span class=\"kit-b__qty\">1 x</span><span>10 lingettes hygiéniques</span></li>\n    </ul>\n  </div>\n</div>"
+          }
         }
       },
       "block_order": [
@@ -239,7 +246,8 @@
         "liquid_G7p9Uz",
         "liquid_wpexy4",
         "collapsible_text_j7wRQF",
-        "collapsible_text_4tYhVA"
+        "collapsible_text_4tYhVA",
+        "liquid_wQwjyj"
       ],
       "name": "Featured product",
       "settings": {

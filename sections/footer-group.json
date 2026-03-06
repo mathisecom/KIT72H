@@ -24,7 +24,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Free shipping",
-            "content": "<p>Tell your customers about your shipping offer.</p>"
+            "content": ""
           }
         },
         "customer-support": {
@@ -37,7 +37,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Customer service",
-            "content": "<p>Tell your customers how they can reach you.</p>"
+            "content": ""
           }
         },
         "discount": {
@@ -50,7 +50,7 @@
             "icon_background": "",
             "icon_color": "",
             "title": "Refer a friend",
-            "content": "<p>Tell your customers about your promotional offers.</p>"
+            "content": ""
           }
         }
       },
@@ -66,9 +66,9 @@
         "heading_tag": "h6",
         "text_alignment": "center",
         "icon_spacing": "small",
-        "background": "",
+        "background": "#eff5f2",
         "background_gradient": "",
-        "text_color": ""
+        "text_color": "#183f33"
       }
     },
     "footer": {

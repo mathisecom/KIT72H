@@ -452,14 +452,14 @@
         "166442457738b23caf-1": {
           "type": "item",
           "settings": {
-            "title": "How long will it take to get my orders?",
-            "content": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+            "title": "Que faut-il ajouter soi-même dans son sac ?",
+            "content": "<p>En complément du kit, il est recommandé d'ajouter de l'eau en bouteille (2L/personne/jour), vos médicaments personnels, des copies de documents importants, du cash, et une liste des contacts d'urgence.</p>"
           }
         },
         "166442457738b23caf-2": {
           "type": "item",
           "settings": {
-            "title": "Any question?",
+            "title": "Où conserver son kit d'urgence ?",
             "content": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
           }
         }

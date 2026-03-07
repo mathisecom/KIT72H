@@ -1,0 +1,690 @@
+{% comment %}
+  Section : Timeline 72H
+  Fichier  : sections/timeline-72h.liquid
+{% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} .tl72 {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_v }}px {{ section.settings.padding_h }}px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Watermark 72 en fond */
+  {% if section.settings.show_watermark %}
+  #shopify-section-{{ section.id }} .tl72::after {
+    content: '{{ section.settings.watermark_text }}';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: {{ section.settings.watermark_size }}px;
+    font-weight: 900;
+    color: {{ section.settings.watermark_color }};
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: {{ section.settings.watermark_opacity | divided_by: 100.0 }};
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .tl72__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── TAG ── */
+  #shopify-section-{{ section.id }} .tl72__tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: {{ section.settings.tag_mb }}px;
+  }
+
+  #shopify-section-{{ section.id }} .tl72__tag-line {
+    width: {{ section.settings.tag_line_width }}px;
+    height: 2px;
+    background-color: {{ section.settings.accent_color }};
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .tl72__tag-text {
+    color: {{ section.settings.accent_color }};
+    font-size: {{ section.settings.tag_size }}px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ── HEADING ── */
+  #shopify-section-{{ section.id }} .tl72__heading {
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.heading_size }}px;
+    font-weight: {{ section.settings.heading_weight }};
+    line-height: 1.15;
+    margin-bottom: {{ section.settings.heading_mb }}px;
+    max-width: {{ section.settings.heading_max_width }}px;
+  }
+
+  #shopify-section-{{ section.id }} .tl72__lead {
+    color: {{ section.settings.lead_color }};
+    font-size: {{ section.settings.lead_size }}px;
+    line-height: 1.7;
+    max-width: {{ section.settings.lead_max_width }}px;
+    margin-bottom: {{ section.settings.lead_mb }}px;
+    font-weight: 300;
+  }
+
+  /* ── TIMELINE ── */
+  #shopify-section-{{ section.id }} .tl72__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Ligne verticale */
+  #shopify-section-{{ section.id }} .tl72__list::before {
+    content: '';
+    position: absolute;
+    left: {{ section.settings.dot_size | divided_by: 2 }}px;
+    top: 0;
+    bottom: 0;
+    width: {{ section.settings.line_width }}px;
+    background-color: {{ section.settings.line_color }};
+    transform: translateX(-50%);
+  }
+
+  #shopify-section-{{ section.id }} .tl72__item {
+    display: flex;
+    align-items: flex-start;
+    gap: {{ section.settings.item_gap }}px;
+    padding: {{ section.settings.item_padding }}px 0;
+    position: relative;
+  }
+
+  /* ── DOT ── */
+  #shopify-section-{{ section.id }} .tl72__dot {
+    width: {{ section.settings.dot_size }}px;
+    height: {{ section.settings.dot_size }}px;
+    border-radius: 50%;
+    background-color: {{ section.settings.dot_bg }};
+    color: {{ section.settings.dot_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: {{ section.settings.dot_font_size }}px;
+    font-weight: 900;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 {{ section.settings.dot_ring }}px {{ section.settings.dot_ring_color }};
+    line-height: 1;
+  }
+
+  /* ── CONTENU ── */
+  #shopify-section-{{ section.id }} .tl72__content {
+    padding-top: {{ section.settings.content_pt }}px;
+  }
+
+  #shopify-section-{{ section.id }} .tl72__item-title {
+    color: {{ section.settings.item_title_color }};
+    font-size: {{ section.settings.item_title_size }}px;
+    font-weight: {{ section.settings.item_title_weight }};
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .tl72__item-desc {
+    color: {{ section.settings.item_desc_color }};
+    font-size: {{ section.settings.item_desc_size }}px;
+    line-height: 1.6;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media screen and (max-width: {{ section.settings.breakpoint }}px) {
+    #shopify-section-{{ section.id }} .tl72__heading {
+      font-size: {{ section.settings.heading_size | times: 0.72 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .tl72 {
+      padding: {{ section.settings.padding_v | divided_by: 1.5 | round }}px {{ section.settings.padding_h | divided_by: 1.5 | round }}px;
+    }
+  }
+</style>
+
+<section class="tl72">
+  <div class="tl72__inner">
+
+    {%- comment %} TAG {%- endcomment %}
+    {%- if section.settings.tag != blank -%}
+      <div class="tl72__tag">
+        <span class="tl72__tag-line"></span>
+        <span class="tl72__tag-text">{{ section.settings.tag }}</span>
+      </div>
+    {%- endif -%}
+
+    {%- comment %} HEADING {%- endcomment %}
+    {%- if section.settings.heading != blank -%}
+      <{{ section.settings.heading_tag }} class="tl72__heading">
+        {{ section.settings.heading }}
+      </{{ section.settings.heading_tag }}>
+    {%- endif -%}
+
+    {%- comment %} LEAD {%- endcomment %}
+    {%- if section.settings.lead != blank -%}
+      <p class="tl72__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    {%- comment %} TIMELINE {%- endcomment %}
+    {%- if section.blocks.size > 0 -%}
+      <ul class="tl72__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            <li class="tl72__item" {{ block.shopify_attributes }}>
+              <div class="tl72__dot"
+                style="
+                  {% if block.settings.dot_bg != blank %}background-color: {{ block.settings.dot_bg }};{% endif %}
+                  {% if block.settings.dot_color != blank %}color: {{ block.settings.dot_color }};{% endif %}
+                ">
+                {{ block.settings.label }}
+              </div>
+              <div class="tl72__content">
+                {%- if block.settings.title != blank -%}
+                  <div class="tl72__item-title"
+                    {%- if block.settings.title_color != blank %} style="color: {{ block.settings.title_color }};"{% endif -%}
+                  >{{ block.settings.title }}</div>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <div class="tl72__item-desc"
+                    {%- if block.settings.desc_color != blank %} style="color: {{ block.settings.desc_color }};"{% endif -%}
+                  >{{ block.settings.description }}</div>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Timeline 72H",
+  "tag": "section",
+  "class": "section-timeline-72h",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎨 Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Couleur de fond",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur accent (tag + ligne)",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Couleur du titre",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "lead_color",
+      "label": "Couleur du sous-titre",
+      "default": "#9aafc8"
+    },
+    {
+      "type": "header",
+      "content": "📐 Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur max (px)",
+      "min": 480,
+      "max": 1200,
+      "step": 20,
+      "default": 700
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Espacement vertical (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_h",
+      "label": "Espacement horizontal (px)",
+      "min": 12,
+      "max": 80,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "breakpoint",
+      "label": "Breakpoint mobile (px)",
+      "min": 480,
+      "max": 900,
+      "step": 20,
+      "default": 640
+    },
+    {
+      "type": "header",
+      "content": "🏷️ Tag"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Texte du tag",
+      "default": "Pourquoi 72 heures ?"
+    },
+    {
+      "type": "range",
+      "id": "tag_size",
+      "label": "Taille du tag (px)",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "tag_line_width",
+      "label": "Longueur de la ligne (px)",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "tag_mb",
+      "label": "Espace sous le tag (px)",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "✍️ Titre & Sous-titre"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Les premières heures sont les plus critiques"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Balise HTML",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Taille du titre (px)",
+      "min": 20,
+      "max": 64,
+      "step": 1,
+      "default": 40
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Graisse du titre",
+      "options": [
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra-Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "800"
+    },
+    {
+      "type": "range",
+      "id": "heading_max_width",
+      "label": "Largeur max titre (px)",
+      "min": 300,
+      "max": 900,
+      "step": 20,
+      "default": 660
+    },
+    {
+      "type": "range",
+      "id": "heading_mb",
+      "label": "Espace sous le titre (px)",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "default": 20
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Texte d'introduction",
+      "default": "Les services de secours et d'approvisionnement mettent en général 24 à 72 heures pour s'organiser et intervenir efficacement. Être autonome pendant cette fenêtre change tout."
+    },
+    {
+      "type": "range",
+      "id": "lead_size",
+      "label": "Taille du texte intro (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "lead_max_width",
+      "label": "Largeur max intro (px)",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "lead_mb",
+      "label": "Espace sous l'intro (px)",
+      "min": 16,
+      "max": 64,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "⭕ Points de la timeline"
+    },
+    {
+      "type": "color",
+      "id": "dot_bg",
+      "label": "Fond des points (défaut)",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Couleur texte des points (défaut)",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "label": "Taille des points (px)",
+      "min": 32,
+      "max": 72,
+      "step": 2,
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "dot_font_size",
+      "label": "Taille du texte dans le point (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "dot_ring",
+      "label": "Halo autour du point (px)",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "color",
+      "id": "dot_ring_color",
+      "label": "Couleur du halo",
+      "default": "#2a4e7f"
+    },
+    {
+      "type": "header",
+      "content": "➖ Ligne verticale"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Couleur de la ligne",
+      "default": "#2a4e7f"
+    },
+    {
+      "type": "range",
+      "id": "line_width",
+      "label": "Épaisseur de la ligne (px)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "📋 Texte des étapes"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "Couleur des titres d'étapes",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "label": "Taille titre étape (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "item_title_weight",
+      "label": "Graisse titre étape",
+      "options": [
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "item_desc_color",
+      "label": "Couleur des descriptions",
+      "default": "#7f97b4"
+    },
+    {
+      "type": "range",
+      "id": "item_desc_size",
+      "label": "Taille description (px)",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Espace point ↔ texte (px)",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "item_padding",
+      "label": "Espace vertical entre les étapes (px)",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "content_pt",
+      "label": "Décalage vertical du texte (px)",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "💧 Filigrane"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_watermark",
+      "label": "Afficher le filigrane",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "watermark_text",
+      "label": "Texte du filigrane",
+      "default": "72"
+    },
+    {
+      "type": "range",
+      "id": "watermark_size",
+      "label": "Taille du filigrane (px)",
+      "min": 80,
+      "max": 400,
+      "step": 20,
+      "default": 220
+    },
+    {
+      "type": "color",
+      "id": "watermark_color",
+      "label": "Couleur du filigrane",
+      "default": "#2a4e7f"
+    },
+    {
+      "type": "range",
+      "id": "watermark_opacity",
+      "label": "Opacité du filigrane (%)",
+      "min": 5,
+      "max": 60,
+      "step": 5,
+      "default": 25
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Étape",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label dans le point (ex: 0, 24, 48…)",
+          "default": "0"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre de l'étape",
+          "default": "Heure zéro — La crise commence"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Électricité, réseau ou accès aux commerces perturbés. La situation est floue."
+        },
+        {
+          "type": "color",
+          "id": "dot_bg",
+          "label": "Fond du point (override)",
+          "info": "Laissez vide pour utiliser la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "dot_color",
+          "label": "Couleur texte du point (override)",
+          "info": "Laissez vide pour utiliser la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Couleur du titre (override)",
+          "info": "Laissez vide pour utiliser la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "desc_color",
+          "label": "Couleur de la description (override)",
+          "info": "Laissez vide pour utiliser la couleur globale"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Timeline 72H",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "label": "0",
+            "title": "Heure zéro — La crise commence",
+            "description": "Électricité, réseau ou accès aux commerces perturbés. La situation est floue."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "24",
+            "title": "Premières 24h — La phase critique",
+            "description": "Les besoins immédiats (eau, lumière, communication) se font sentir."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "48",
+            "title": "48h — Les secours s'organisent",
+            "description": "Les premières informations officielles arrivent. Les approvisionnements reprennent progressivement."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "label": "72",
+            "title": "72h — Retour à la normale",
+            "description": "Dans la majorité des situations, la vie reprend son cours. Vous avez tenu."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

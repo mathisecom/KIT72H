@@ -142,6 +142,111 @@
         "border_color": "#e5e5e5"
       }
     },
+    "timeline72_LEbbFP": {
+      "type": "timeline72",
+      "blocks": {
+        "step_bVKHVd": {
+          "type": "step",
+          "settings": {
+            "label": "0",
+            "title": "Heure zéro — La crise commence",
+            "description": "Électricité, réseau ou accès aux commerces perturbés. La situation est floue.",
+            "dot_bg": "",
+            "dot_color": "",
+            "title_color": "",
+            "desc_color": ""
+          }
+        },
+        "step_BcjNXx": {
+          "type": "step",
+          "settings": {
+            "label": "24",
+            "title": "Premières 24h — La phase critique",
+            "description": "Les besoins immédiats (eau, lumière, communication) se font sentir.",
+            "dot_bg": "",
+            "dot_color": "",
+            "title_color": "",
+            "desc_color": ""
+          }
+        },
+        "step_bgzmVT": {
+          "type": "step",
+          "settings": {
+            "label": "48",
+            "title": "48h — Les secours s'organisent",
+            "description": "Les premières informations officielles arrivent. Les approvisionnements reprennent progressivement.",
+            "dot_bg": "",
+            "dot_color": "",
+            "title_color": "",
+            "desc_color": ""
+          }
+        },
+        "step_wTK66Y": {
+          "type": "step",
+          "settings": {
+            "label": "72",
+            "title": "72h — Retour à la normale",
+            "description": "Dans la majorité des situations, la vie reprend son cours. Vous avez tenu.",
+            "dot_bg": "",
+            "dot_color": "",
+            "title_color": "",
+            "desc_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "step_bVKHVd",
+        "step_BcjNXx",
+        "step_bgzmVT",
+        "step_wTK66Y"
+      ],
+      "name": "Timeline 72H",
+      "settings": {
+        "bg_color": "#eff5f2",
+        "accent_color": "#F59E0B",
+        "heading_color": "#183f33",
+        "lead_color": "#183f33",
+        "max_width": 700,
+        "padding_v": 72,
+        "padding_h": 28,
+        "breakpoint": 640,
+        "tag": "Pourquoi 72 heures ?",
+        "tag_size": 11,
+        "tag_line_width": 28,
+        "tag_mb": 14,
+        "heading": "Les premières heures sont les plus critiques",
+        "heading_tag": "h2",
+        "heading_size": 40,
+        "heading_weight": "800",
+        "heading_max_width": 660,
+        "heading_mb": 20,
+        "lead": "Les services de secours et d'approvisionnement mettent en général 24 à 72 heures pour s'organiser et intervenir efficacement. Être autonome pendant cette fenêtre change tout.",
+        "lead_size": 15,
+        "lead_max_width": 620,
+        "lead_mb": 36,
+        "dot_bg": "#ff7000",
+        "dot_color": "#ffffff",
+        "dot_size": 52,
+        "dot_font_size": 16,
+        "dot_ring": 4,
+        "dot_ring_color": "#183f33",
+        "line_color": "#183f33",
+        "line_width": 2,
+        "item_title_color": "#183f33",
+        "item_title_size": 16,
+        "item_title_weight": "600",
+        "item_desc_color": "#183f33",
+        "item_desc_size": 13,
+        "item_gap": 22,
+        "item_padding": 16,
+        "content_pt": 10,
+        "show_watermark": false,
+        "watermark_text": "72",
+        "watermark_size": 220,
+        "watermark_color": "#2a4e7f",
+        "watermark_opacity": 25
+      }
+    },
     "featured_product_cqdxpP": {
       "type": "featured-product",
       "blocks": {
@@ -503,6 +608,7 @@
   "order": [
     "slideshow_eVQa47",
     "marquee_icons_Dnap9j",
+    "timeline72_LEbbFP",
     "featured_product_cqdxpP",
     "section_image_4baUJ9",
     "rich_text_dPJMyX",

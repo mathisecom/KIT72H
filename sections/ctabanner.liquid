@@ -1,0 +1,505 @@
+{% comment %}
+  Section : Bannière CTA
+  Fichier  : sections/cta-banner.liquid
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  #shopify-section-{{ section.id }} .cta-banner {
+    background: {{ section.settings.bg_color }};
+    {% if section.settings.use_gradient %}
+    background: linear-gradient({{ section.settings.gradient_angle }}deg, {{ section.settings.gradient_from }}, {{ section.settings.gradient_to }});
+    {% endif %}
+    padding: {{ section.settings.padding_v }}px {{ section.settings.padding_h }}px;
+    text-align: {{ section.settings.text_align }};
+    position: relative;
+    overflow: hidden;
+  }
+
+  {% if section.settings.show_watermark %}
+  #shopify-section-{{ section.id }} .cta-banner::after {
+    content: '{{ section.settings.watermark_text }}';
+    position: absolute;
+    right: -10px; bottom: -20px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.watermark_size }}px;
+    font-weight: 900;
+    color: {{ section.settings.watermark_color }};
+    opacity: {{ section.settings.watermark_opacity | divided_by: 100.0 }};
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .cta-banner__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: {{ section.settings.elements_gap }}px;
+  }
+
+  #shopify-section-{{ section.id }} .cta-banner__title {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+    color: {{ section.settings.title_color }};
+    line-height: 1.2;
+    margin: 0;
+    max-width: {{ section.settings.title_max_width }}px;
+  }
+
+  #shopify-section-{{ section.id }} .cta-banner__desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: {{ section.settings.desc_size }}px;
+    font-weight: 300;
+    color: {{ section.settings.desc_color }};
+    line-height: 1.65;
+    margin: 0;
+    max-width: {{ section.settings.desc_max_width }}px;
+  }
+
+  #shopify-section-{{ section.id }} .cta-banner__btn {
+    font-family: 'DM Sans', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_color }};
+    font-size: {{ section.settings.btn_font_size }}px;
+    font-weight: 700;
+    padding: {{ section.settings.btn_pad_v }}px {{ section.settings.btn_pad_h }}px;
+    border-radius: {{ section.settings.btn_radius }}px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: {{ section.settings.btn_max_width }}px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    letter-spacing: 0.01em;
+  }
+
+  #shopify-section-{{ section.id }} .cta-banner__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.28);
+    opacity: .92;
+  }
+
+  #shopify-section-{{ section.id }} .cta-banner__guarantee {
+    font-family: 'DM Sans', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: {{ section.settings.guarantee_color }};
+    font-size: {{ section.settings.guarantee_size }}px;
+    font-weight: 400;
+  }
+
+  {% if section.settings.show_lock_icon %}
+  #shopify-section-{{ section.id }} .cta-banner__guarantee::before {
+    content: '🔒';
+    font-size: {{ section.settings.guarantee_size }}px;
+  }
+  {% endif %}
+
+  /* ── RESPONSIVE ── */
+  @media screen and (max-width: {{ section.settings.breakpoint }}px) {
+    #shopify-section-{{ section.id }} .cta-banner {
+      padding: {{ section.settings.padding_v | divided_by: 1.4 | round }}px {{ section.settings.padding_h | divided_by: 1.5 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .cta-banner__title {
+      font-size: {{ section.settings.title_size | times: 0.72 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .cta-banner__btn {
+      max-width: 100%;
+      font-size: {{ section.settings.btn_font_size | minus: 1 }}px;
+    }
+  }
+</style>
+
+<section class="cta-banner">
+  <div class="cta-banner__inner">
+
+    {%- if section.settings.title != blank -%}
+      <{{ section.settings.title_tag }} class="cta-banner__title">
+        {{ section.settings.title }}
+      </{{ section.settings.title_tag }}>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <p class="cta-banner__desc">{{ section.settings.description }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.btn_text != blank -%}
+      <a href="{{ section.settings.btn_url }}" class="cta-banner__btn">
+        {%- if section.settings.btn_emoji != blank -%}{{ section.settings.btn_emoji }} {%- endif -%}
+        {{ section.settings.btn_text }}
+      </a>
+    {%- endif -%}
+
+    {%- if section.settings.guarantee_text != blank -%}
+      <div class="cta-banner__guarantee">{{ section.settings.guarantee_text }}</div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bannière CTA",
+  "tag": "section",
+  "class": "section-cta-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎨 Fond"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Couleur de fond",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_gradient",
+      "label": "Utiliser un dégradé",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "gradient_from",
+      "label": "Dégradé — couleur de départ",
+      "default": "#142740"
+    },
+    {
+      "type": "color",
+      "id": "gradient_to",
+      "label": "Dégradé — couleur d'arrivée",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "range",
+      "id": "gradient_angle",
+      "label": "Angle du dégradé (°)",
+      "min": 0,
+      "max": 360,
+      "step": 5,
+      "default": 135
+    },
+    {
+      "type": "header",
+      "content": "💧 Filigrane"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_watermark",
+      "label": "Afficher le filigrane",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "watermark_text",
+      "label": "Texte du filigrane",
+      "default": "72H"
+    },
+    {
+      "type": "range",
+      "id": "watermark_size",
+      "label": "Taille du filigrane (px)",
+      "min": 80,
+      "max": 400,
+      "step": 20,
+      "default": 200
+    },
+    {
+      "type": "color",
+      "id": "watermark_color",
+      "label": "Couleur du filigrane",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "watermark_opacity",
+      "label": "Opacité du filigrane (%)",
+      "min": 2,
+      "max": 30,
+      "step": 2,
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "📐 Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur max du contenu (px)",
+      "min": 320,
+      "max": 900,
+      "step": 20,
+      "default": 560
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Espacement vertical (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_h",
+      "label": "Espacement horizontal (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Alignement du contenu",
+      "options": [
+        { "value": "left",   "label": "Gauche" },
+        { "value": "center", "label": "Centre" },
+        { "value": "right",  "label": "Droite" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "elements_gap",
+      "label": "Espace entre les éléments (px)",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "breakpoint",
+      "label": "Breakpoint mobile (px)",
+      "min": 320,
+      "max": 900,
+      "step": 20,
+      "default": 640
+    },
+    {
+      "type": "header",
+      "content": "✍️ Titre"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Titre",
+      "default": "Soyez prêt avant que ça n'arrive"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Balise HTML",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Taille du titre (px)",
+      "min": 18,
+      "max": 64,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Graisse du titre",
+      "options": [
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra-Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "800"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_max_width",
+      "label": "Largeur max titre (px)",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "default": 560
+    },
+    {
+      "type": "header",
+      "content": "📝 Description"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Un kit suffit pour avoir l'esprit tranquille. Livraison suivie, préparation rapide, prêt à l'emploi dès réception."
+    },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "label": "Taille du texte (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Couleur du texte",
+      "default": "#9aafc8"
+    },
+    {
+      "type": "range",
+      "id": "desc_max_width",
+      "label": "Largeur max description (px)",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "default": 440
+    },
+    {
+      "type": "header",
+      "content": "🔘 Bouton"
+    },
+    {
+      "type": "text",
+      "id": "btn_emoji",
+      "label": "Emoji avant le texte",
+      "default": "🎒"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Texte du bouton",
+      "default": "Commander mon kit — 89 €"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Lien du bouton"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Couleur de fond du bouton",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Couleur du texte du bouton",
+      "default": "#142740"
+    },
+    {
+      "type": "range",
+      "id": "btn_font_size",
+      "label": "Taille du texte du bouton (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 17
+    },
+    {
+      "type": "range",
+      "id": "btn_pad_v",
+      "label": "Padding vertical bouton (px)",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "btn_pad_h",
+      "label": "Padding horizontal bouton (px)",
+      "min": 16,
+      "max": 80,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Arrondi du bouton (px)",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "btn_max_width",
+      "label": "Largeur max du bouton (px)",
+      "min": 160,
+      "max": 600,
+      "step": 20,
+      "default": 340
+    },
+    {
+      "type": "header",
+      "content": "🔒 Mention de confiance"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Texte de la mention",
+      "default": "Paiement sécurisé · Satisfait ou remboursé 30 jours"
+    },
+    {
+      "type": "color",
+      "id": "guarantee_color",
+      "label": "Couleur de la mention",
+      "default": "#5a7a9a"
+    },
+    {
+      "type": "range",
+      "id": "guarantee_size",
+      "label": "Taille de la mention (px)",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_lock_icon",
+      "label": "Afficher le cadenas 🔒",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière CTA"
+    }
+  ]
+}
+{% endschema %}

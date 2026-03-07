@@ -598,26 +598,26 @@
     "testimonials_Ameqyd": {
       "type": "testimonials",
       "blocks": {
-        "testimonial_aJkyAk": {
-          "type": "testimonial",
-          "settings": {
-            "round_avatar": true,
-            "show_rating": true,
-            "rating": 4,
-            "author": "John S.",
-            "title": "Testimonial 1",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
-          }
-        },
         "testimonial_YBUzMQ": {
           "type": "testimonial",
           "settings": {
             "round_avatar": true,
             "show_rating": true,
             "rating": 5,
-            "author": "Mary U.",
-            "title": "Testimonial 2",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+            "author": "Nathalie B.",
+            "title": "Ça fait du bien de se sentir préparé",
+            "content": "<p>Acheté suite aux alertes météo de cet automne. On ne sait jamais ce qui peut arriver et ça fait du bien de se sentir préparé. Le contenu est bien détaillé sur le site, pas de mauvaise surprise à la réception.</p>"
+          }
+        },
+        "testimonial_aJkyAk": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 5,
+            "author": "Thomas R.",
+            "title": "Kit complet, Je recommande !",
+            "content": "<p>Je travaille dans la sécurité civile et je recommande ce type de kit à tous mes proches. Celui-ci est complet, bien pensé et le prix est honnête par rapport à ce qu'on reçoit. La radio solaire est un vrai plus.</p>"
           }
         },
         "testimonial_tM9Ydf": {
@@ -626,15 +626,15 @@
             "round_avatar": true,
             "show_rating": true,
             "rating": 4,
-            "author": "Joshua A.",
-            "title": "Testimonial 3",
-            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+            "author": "Sophie & Julien",
+            "title": "Exactement ce qu'il nous fallait",
+            "content": "<p>On habite en zone inondable, on cherchait quelque chose de prêt à l'emploi sans devoir tout assembler nous-mêmes. Exactement ce qu'il nous fallait. Livraison rapide et kit impeccable à la réception.</p>"
           }
         }
       },
       "block_order": [
-        "testimonial_aJkyAk",
         "testimonial_YBUzMQ",
+        "testimonial_aJkyAk",
         "testimonial_tM9Ydf"
       ],
       "name": "Testimonials",

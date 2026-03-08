@@ -741,6 +741,7 @@
         "feature_4kygRn",
         "feature_CDdzHV"
       ],
+      "disabled": true,
       "name": "Features 4K",
       "settings": {
         "max_width": 1300,

@@ -712,7 +712,7 @@
         "heading_gradient": "",
         "button_background": "",
         "button_text_color": "",
-        "accordion_background": "",
+        "accordion_background": "#f7f9fc",
         "accordion_text_color": ""
       }
     },

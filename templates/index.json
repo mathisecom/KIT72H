@@ -690,6 +690,7 @@
         "item_QU4X8K",
         "item_HD8yp7"
       ],
+      "disabled": true,
       "name": "Text with icons",
       "settings": {
         "full_width": true,
@@ -739,7 +740,6 @@
         "feature_4kygRn",
         "feature_CDdzHV"
       ],
-      "disabled": true,
       "name": "Features 4K",
       "settings": {
         "max_width": 1300,
@@ -750,7 +750,7 @@
         "reverse_columns": false,
         "mobile_image_bottom": false,
         "breakpoint": 768,
-        "background_color": "#f3f6fc",
+        "background_color": "#ffffff",
         "accent_color": "#142740",
         "heading_color": "#142740",
         "title_color": "#142740",

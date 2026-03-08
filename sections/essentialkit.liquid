@@ -1,0 +1,641 @@
+{% comment %}
+  Section : Les essentiels du sac d'urgence
+  Fichier  : sections/essentials-list.liquid
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  #shopify-section-{{ section.id }} .ess-s {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_v }}px {{ section.settings.padding_h }}px;
+  }
+
+  #shopify-section-{{ section.id }} .ess-s__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  /* ── TAG ── */
+  #shopify-section-{{ section.id }} .ess-s__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    color: {{ section.settings.tag_color }};
+    font-size: {{ section.settings.tag_size }}px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: {{ section.settings.tag_mb }}px;
+  }
+
+  {% if section.settings.show_tag_line %}
+  #shopify-section-{{ section.id }} .ess-s__tag::before {
+    content: '';
+    width: {{ section.settings.tag_line_width }}px;
+    height: 2px;
+    background-color: {{ section.settings.tag_color }};
+    border-radius: 1px;
+    display: inline-block;
+  }
+  {% endif %}
+
+  /* ── TITRE ── */
+  #shopify-section-{{ section.id }} .ess-s__title {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+    color: {{ section.settings.title_color }};
+    line-height: 1.2;
+    margin-bottom: {{ section.settings.title_mb }}px;
+    max-width: {{ section.settings.title_max_width }}px;
+  }
+
+  /* ── LEAD ── */
+  #shopify-section-{{ section.id }} .ess-s__lead {
+    font-family: 'DM Sans', sans-serif;
+    font-size: {{ section.settings.lead_size }}px;
+    font-weight: 300;
+    color: {{ section.settings.lead_color }};
+    line-height: 1.7;
+    max-width: {{ section.settings.lead_max_width }}px;
+    margin-bottom: {{ section.settings.lead_mb }}px;
+  }
+
+  /* ── LISTE ── */
+  #shopify-section-{{ section.id }} .ess-s__list {
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.items_gap }}px;
+  }
+
+  /* ── ITEM ── */
+  #shopify-section-{{ section.id }} .ess-s__item {
+    display: flex;
+    align-items: center;
+    gap: {{ section.settings.item_gap }}px;
+    background-color: {{ section.settings.item_bg }};
+    border-radius: {{ section.settings.item_radius }}px;
+    padding: {{ section.settings.item_pad_v }}px {{ section.settings.item_pad_h }}px;
+    border-left: {{ section.settings.item_border_width }}px solid {{ section.settings.item_border_color }};
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  {% if section.settings.item_hover %}
+  #shopify-section-{{ section.id }} .ess-s__item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    transform: translateX(3px);
+  }
+  {% endif %}
+
+  /* ── ICÔNE ── */
+  #shopify-section-{{ section.id }} .ess-s__icon {
+    font-size: {{ section.settings.icon_size }}px;
+    flex-shrink: 0;
+    width: {{ section.settings.icon_box }}px;
+    text-align: center;
+  }
+
+  /* ── TEXTE ── */
+  #shopify-section-{{ section.id }} .ess-s__item-title {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.item_title_size }}px;
+    font-weight: {{ section.settings.item_title_weight }};
+    color: {{ section.settings.item_title_color }};
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+
+  #shopify-section-{{ section.id }} .ess-s__item-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: {{ section.settings.item_note_size }}px;
+    font-weight: 400;
+    color: {{ section.settings.item_note_color }};
+    line-height: 1.5;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media screen and (max-width: {{ section.settings.breakpoint }}px) {
+    #shopify-section-{{ section.id }} .ess-s {
+      padding: {{ section.settings.padding_v | divided_by: 1.4 | round }}px {{ section.settings.padding_h | divided_by: 1.5 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .ess-s__title {
+      font-size: {{ section.settings.title_size | times: 0.75 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .ess-s__item {
+      padding: {{ section.settings.item_pad_v | minus: 2 }}px {{ section.settings.item_pad_h | minus: 4 }}px;
+    }
+  }
+</style>
+
+<section class="ess-s">
+  <div class="ess-s__inner">
+
+    {%- if section.settings.tag != blank -%}
+      <div class="ess-s__tag">{{ section.settings.tag }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.title != blank -%}
+      <{{ section.settings.title_tag }} class="ess-s__title">
+        {{ section.settings.title }}
+      </{{ section.settings.title_tag }}>
+    {%- endif -%}
+
+    {%- if section.settings.lead != blank -%}
+      <p class="ess-s__lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ess-s__list">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'item' -%}
+            <div class="ess-s__item" {{ block.shopify_attributes }}
+              style="
+                {% if block.settings.item_bg != blank %}background-color: {{ block.settings.item_bg }};{% endif %}
+                {% if block.settings.border_color != blank %}border-left-color: {{ block.settings.border_color }};{% endif %}
+              ">
+              {%- if block.settings.icon != blank -%}
+                <div class="ess-s__icon">{{ block.settings.icon }}</div>
+              {%- endif -%}
+              <div>
+                {%- if block.settings.title != blank -%}
+                  <div class="ess-s__item-title"
+                    style="{% if block.settings.title_color != blank %}color: {{ block.settings.title_color }};{% endif %}">
+                    {{ block.settings.title }}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.note != blank -%}
+                  <div class="ess-s__item-note"
+                    style="{% if block.settings.note_color != blank %}color: {{ block.settings.note_color }};{% endif %}">
+                    {{ block.settings.note }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Liste essentiels",
+  "tag": "section",
+  "class": "section-essentials-list",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎨 Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fond de la section",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "📐 Mise en page"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur max (px)",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "default": 680
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Espacement vertical (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_h",
+      "label": "Espacement horizontal (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "breakpoint",
+      "label": "Breakpoint mobile (px)",
+      "min": 320,
+      "max": 900,
+      "step": 20,
+      "default": 640
+    },
+    {
+      "type": "header",
+      "content": "🏷️ Tag"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Texte du tag",
+      "default": "Que faut-il avoir ?"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Couleur du tag",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "range",
+      "id": "tag_size",
+      "label": "Taille du tag (px)",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "tag_mb",
+      "label": "Espace sous le tag (px)",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_line",
+      "label": "Afficher la ligne avant le tag",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "tag_line_width",
+      "label": "Longueur de la ligne (px)",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "✍️ Titre"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Titre",
+      "default": "Les 5 essentiels d'un sac d'urgence"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Balise HTML",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Taille du titre (px)",
+      "min": 18,
+      "max": 60,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Graisse du titre",
+      "options": [
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra-Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "900"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#1a2332"
+    },
+    {
+      "type": "range",
+      "id": "title_max_width",
+      "label": "Largeur max titre (px)",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "default": 680
+    },
+    {
+      "type": "range",
+      "id": "title_mb",
+      "label": "Espace sous le titre (px)",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "📝 Introduction"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Texte d'introduction",
+      "default": "Quelle que soit la situation, ces éléments couvrent les besoins fondamentaux des premières heures."
+    },
+    {
+      "type": "color",
+      "id": "lead_color",
+      "label": "Couleur de l'intro",
+      "default": "#4a5568"
+    },
+    {
+      "type": "range",
+      "id": "lead_size",
+      "label": "Taille de l'intro (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "lead_max_width",
+      "label": "Largeur max intro (px)",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "default": 660
+    },
+    {
+      "type": "range",
+      "id": "lead_mb",
+      "label": "Espace sous l'intro (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "📋 Items"
+    },
+    {
+      "type": "color",
+      "id": "item_bg",
+      "label": "Fond des items",
+      "default": "#F2F4F7"
+    },
+    {
+      "type": "color",
+      "id": "item_border_color",
+      "label": "Couleur bordure gauche",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "range",
+      "id": "item_border_width",
+      "label": "Épaisseur bordure gauche (px)",
+      "min": 0,
+      "max": 8,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "item_radius",
+      "label": "Arrondi des items (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_pad_v",
+      "label": "Padding vertical item (px)",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "item_pad_h",
+      "label": "Padding horizontal item (px)",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "items_gap",
+      "label": "Espace entre les items (px)",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Espace icône ↔ texte (px)",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "item_hover",
+      "label": "Effet hover sur les items",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "🔷 Icônes"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Taille de l'emoji (px)",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "range",
+      "id": "icon_box",
+      "label": "Largeur réservée à l'icône (px)",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "🖊️ Texte des items"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "Couleur des titres",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "range",
+      "id": "item_title_size",
+      "label": "Taille des titres (px)",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "select",
+      "id": "item_title_weight",
+      "label": "Graisse des titres",
+      "options": [
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "item_note_color",
+      "label": "Couleur des notes",
+      "default": "#4a5568"
+    },
+    {
+      "type": "range",
+      "id": "item_note_size",
+      "label": "Taille des notes (px)",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 13
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Essentiel",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji icône",
+          "default": "💧"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Eau potable"
+        },
+        {
+          "type": "textarea",
+          "id": "note",
+          "label": "Note / description",
+          "default": "Au minimum 2 litres par personne et par jour"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Couleur titre (override)",
+          "info": "Laissez vide pour la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "note_color",
+          "label": "Couleur note (override)",
+          "info": "Laissez vide pour la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "item_bg",
+          "label": "Fond item (override)",
+          "info": "Laissez vide pour la couleur globale"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Bordure gauche (override)",
+          "info": "Laissez vide pour la couleur globale"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Liste essentiels",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "💧",
+            "title": "Eau potable",
+            "note": "Au minimum 2 litres par personne et par jour"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "🔦",
+            "title": "Source de lumière",
+            "note": "Lanterne ou lampe à piles indépendante du réseau"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "🩹",
+            "title": "Trousse de premiers secours",
+            "note": "Bandages, désinfectant, analgésiques, couverture de survie"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "🌡️",
+            "title": "Protection thermique",
+            "note": "Couverture de survie légère et compacte"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "📻",
+            "title": "Moyen de communication",
+            "note": "Radio d'urgence solaire pour recevoir les bulletins officiels"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

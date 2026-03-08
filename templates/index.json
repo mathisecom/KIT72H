@@ -358,6 +358,120 @@
         "watermark_opacity": 5
       }
     },
+    "essentialkit_RkLUGQ": {
+      "type": "essentialkit",
+      "blocks": {
+        "item_c6pGw4": {
+          "type": "item",
+          "settings": {
+            "icon": "💧",
+            "title": "Eau potable",
+            "note": "Au minimum 2 litres par personne et par jour",
+            "title_color": "",
+            "note_color": "",
+            "item_bg": "",
+            "border_color": ""
+          }
+        },
+        "item_3TmcBD": {
+          "type": "item",
+          "settings": {
+            "icon": "🔦",
+            "title": "Source de lumière",
+            "note": "Lanterne ou lampe à piles indépendante du réseau",
+            "title_color": "",
+            "note_color": "",
+            "item_bg": "",
+            "border_color": ""
+          }
+        },
+        "item_Em7bXR": {
+          "type": "item",
+          "settings": {
+            "icon": "🩹",
+            "title": "Trousse de premiers secours",
+            "note": "Bandages, désinfectant, analgésiques, couverture de survie",
+            "title_color": "",
+            "note_color": "",
+            "item_bg": "",
+            "border_color": ""
+          }
+        },
+        "item_FthzTd": {
+          "type": "item",
+          "settings": {
+            "icon": "🌡️",
+            "title": "Protection thermique",
+            "note": "Couverture de survie légère et compacte",
+            "title_color": "",
+            "note_color": "",
+            "item_bg": "",
+            "border_color": ""
+          }
+        },
+        "item_JedY7c": {
+          "type": "item",
+          "settings": {
+            "icon": "📻",
+            "title": "Moyen de communication",
+            "note": "Radio d'urgence solaire pour recevoir les bulletins officiels",
+            "title_color": "",
+            "note_color": "",
+            "item_bg": "",
+            "border_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_c6pGw4",
+        "item_3TmcBD",
+        "item_Em7bXR",
+        "item_FthzTd",
+        "item_JedY7c"
+      ],
+      "name": "Liste essentiels",
+      "settings": {
+        "bg_color": "#ffffff",
+        "max_width": 680,
+        "padding_v": 44,
+        "padding_h": 24,
+        "breakpoint": 640,
+        "tag": "Que faut-il avoir ?",
+        "tag_color": "#F59E0B",
+        "tag_size": 11,
+        "tag_mb": 12,
+        "show_tag_line": true,
+        "tag_line_width": 24,
+        "title": "Les 5 essentiels d'un sac d'urgence",
+        "title_tag": "h2",
+        "title_size": 36,
+        "title_weight": "700",
+        "title_color": "#1a2332",
+        "title_max_width": 680,
+        "title_mb": 16,
+        "lead": "Quelle que soit la situation, ces éléments couvrent les besoins fondamentaux des premières heures.",
+        "lead_color": "#4a5568",
+        "lead_size": 16,
+        "lead_max_width": 660,
+        "lead_mb": 36,
+        "item_bg": "#F2F4F7",
+        "item_border_color": "#1F3A5F",
+        "item_border_width": 3,
+        "item_radius": 12,
+        "item_pad_v": 16,
+        "item_pad_h": 20,
+        "items_gap": 12,
+        "item_gap": 16,
+        "item_hover": true,
+        "icon_size": 22,
+        "icon_box": 36,
+        "item_title_color": "#1F3A5F",
+        "item_title_size": 15,
+        "item_title_weight": "600",
+        "item_note_color": "#4a5568",
+        "item_note_size": 13
+      }
+    },
     "featured_product_cqdxpP": {
       "type": "featured-product",
       "blocks": {
@@ -863,6 +977,7 @@
     "marquee_icons_Dnap9j",
     "riskcard_jX4wAW",
     "timeline72_LEbbFP",
+    "essentialkit_RkLUGQ",
     "featured_product_cqdxpP",
     "section_image_4baUJ9",
     "rich_text_dPJMyX",

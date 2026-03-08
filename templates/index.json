@@ -613,6 +613,7 @@
         "image_cG4UXY": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/CREA_1080X1080_-_2026-03-09T005645.543.jpg",
             "media_width": 50,
             "media_position": "start",
             "text_position": "place-self-center text-center",

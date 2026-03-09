@@ -735,15 +735,15 @@
         "show_tag_line": true,
         "title": "Tout ce qu'il vous faut,",
         "title_accent": "dans un seul sac",
-        "title_tag": "h2",
-        "title_size": 38,
+        "title_tag": "h1",
+        "title_size": 36,
         "title_weight": "700",
         "title_color": "#142740",
         "title_accent_color": "#ff7000",
         "title_mb": 12,
         "lead": "13 équipements essentiels sélectionnés pour couvrir chaque besoin critique des premières 72 heures. Rien de superflu, rien qui manque.",
-        "lead_color": "#64748b",
-        "lead_size": 15,
+        "lead_color": "#142740",
+        "lead_size": 14,
         "lead_mb": 32,
         "item_bg": "#F2F4F7",
         "item_border_hover": "#E4E8EF",
@@ -757,7 +757,7 @@
         "icon_size": 18,
         "item_name_color": "#142740",
         "item_name_size": 14,
-        "item_sub_color": "#64748b",
+        "item_sub_color": "#142740",
         "item_sub_size": 12,
         "check_bg": "#e8f5ee",
         "check_color": "#22c55e",
@@ -779,32 +779,40 @@
     "rich_text_A6T4DF": {
       "type": "rich-text",
       "blocks": {
-        "subheading_rB7prQ": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
         "heading_DJtcy8": {
           "type": "heading",
           "settings": {
-            "text": "Heading",
-            "heading_tag": "h1",
+            "text": "Anticiper, ce n’est pas s’inquiéter. C’est se protéger",
+            "heading_tag": "h2",
             "text_color": "",
             "gradient": ""
           }
         },
-        "richtext_PVcLQq": {
-          "type": "richtext",
+        "heading_Ad4L4U": {
+          "type": "heading",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "text": "On regrette toujours de ne pas s’être préparé… jamais de l’avoir fait.",
+            "heading_tag": "h4",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "button_NimGtC": {
+          "type": "button",
+          "settings": {
+            "style": "fill",
+            "size": "xl",
+            "text": "COMMANDER MON KIT 72H ➡",
+            "url": "#shopify-section-template--27888072917332__featured_product_cqdxpP",
+            "background": "#ffffff",
+            "text_color": "#ff7000"
           }
         }
       },
       "block_order": [
-        "subheading_rB7prQ",
         "heading_DJtcy8",
-        "richtext_PVcLQq"
+        "heading_Ad4L4U",
+        "button_NimGtC"
       ],
       "name": "Rich text",
       "settings": {
@@ -832,7 +840,7 @@
             "subheading": "",
             "title": "Ce kit est utile quand on ne s'y attend pas",
             "content": "<p><strong>Coupure d'électricité, évacuation d'urgence, catastrophe naturelle, panne de réseau, ces situations arrivent sans prévenir. </strong></p><p>Ce kit vous permet d'agir immédiatement et de protéger votre famille le temps que les secours s'organisent.</p>",
-            "link_text": "OBTENIR MON KIT MAINTENANT",
+            "link_text": "OBTENIR MON KIT MAINTENANT ➡",
             "link_url": "#shopify-section-template--27888072917332__featured_product_cqdxpP",
             "background": "#f3f6fc",
             "background_gradient": "",

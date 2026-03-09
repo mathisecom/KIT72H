@@ -831,6 +831,7 @@
         "image_cG4UXY": {
           "type": "image",
           "settings": {
+            "image": "shopify://shop_images/CREA_1080X1080_-_2026-03-09T005645.543.jpg",
             "media_width": 50,
             "media_position": "end",
             "text_position": "place-self-center text-center",
@@ -932,7 +933,7 @@
             "title": "Prêt en quelques secondes :",
             "description": "Tout est déjà réuni et organisé. Pas de panique, pas de recherche. Vous agissez immédiatement.",
             "icon_svg": "",
-            "icon_text": "4K"
+            "icon_text": ""
           }
         },
         "feature_4kygRn": {
@@ -941,7 +942,7 @@
             "title": "Autonome quand ça compte :",
             "description": "En cas de coupure, d'évacuation ou de crise, vous ne dépendez de personne pour protéger votre famille.",
             "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
-            "icon_text": "4K"
+            "icon_text": ""
           }
         },
         "feature_CDdzHV": {
@@ -950,7 +951,7 @@
             "title": "Un geste simple, une tranquillité durable :",
             "description": "Commandez une fois, soyez prêt pour des années. La sérénité ne devrait pas attendre.",
             "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M6.343 6.343a8 8 0 1 0 11.314 11.314A8 8 0 0 0 6.343 6.343z\"></path><path d=\"M2 12h2M20 12h2M12 2v2M12 20v2\"></path></svg>",
-            "icon_text": "4K"
+            "icon_text": ""
           }
         }
       },

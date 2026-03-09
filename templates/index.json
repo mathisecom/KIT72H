@@ -746,14 +746,14 @@
         "lead_color": "#142740",
         "lead_size": 14,
         "lead_mb": 32,
-        "item_bg": "#F2F4F7",
-        "item_border_hover": "#E4E8EF",
+        "item_bg": "#f2f4f7",
+        "item_border_hover": "#e4e8ef",
         "item_radius": 12,
         "item_pad_v": 12,
         "item_pad_h": 16,
         "items_gap": 10,
         "list_mb": 36,
-        "num_bg": "#1F3A5F",
+        "num_bg": "#1f3a5f",
         "num_color": "#ffffff",
         "icon_size": 18,
         "item_name_color": "#142740",
@@ -764,10 +764,10 @@
         "check_color": "#22c55e",
         "show_counter": false,
         "counter_from": "#142740",
-        "counter_to": "#1F3A5F",
+        "counter_to": "#1f3a5f",
         "counter_radius": 14,
         "counter_pad": 16,
-        "counter_num_color": "#F59E0B",
+        "counter_num_color": "#f59e0b",
         "counter_num_size": 22,
         "counter_1_num": "13",
         "counter_1_label": "Équipements",
@@ -948,7 +948,7 @@
           "settings": {
             "title": "Prêt en quelques secondes :",
             "description": "Tout est déjà réuni et organisé. Pas de panique, pas de recherche. Vous agissez immédiatement.",
-            "icon_svg": "",
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M11.0833 12.0001L1 19.3334L1 4.66675L11.0833 12.0001Z\" stroke=\"&lt;svg viewBox=\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M11.0833 12.0001L1 19.3334L1 4.66675L11.0833 12.0001Z\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M7.41669 19.3334L17.5 12.0001L7.41669 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M12.9167 19.3334L23 12.0001L12.9167 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g>\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"&gt;</path> <path d=\"M7.41669 19.3334L17.5 12.0001L7.41669 4.66675\" stroke=\"&lt;svg viewBox=\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M11.0833 12.0001L1 19.3334L1 4.66675L11.0833 12.0001Z\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M7.41669 19.3334L17.5 12.0001L7.41669 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M12.9167 19.3334L23 12.0001L12.9167 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g>\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"&gt;</path> <path d=\"M12.9167 19.3334L23 12.0001L12.9167 4.66675\" stroke=\"&lt;svg viewBox=\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M11.0833 12.0001L1 19.3334L1 4.66675L11.0833 12.0001Z\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M7.41669 19.3334L17.5 12.0001L7.41669 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> <path d=\"M12.9167 19.3334L23 12.0001L12.9167 4.66675\" stroke=\"#FF7000\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g>\" stroke-width=\"1.83333\" stroke-linecap=\"round\" stroke-linejoin=\"round\"&gt;</path> </g></svg>",
             "icon_text": ""
           }
         },
@@ -957,7 +957,7 @@
           "settings": {
             "title": "Autonome quand ça compte :",
             "description": "En cas de coupure, d'évacuation ou de crise, vous ne dépendez de personne pour protéger votre famille.",
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" id=\"Layer_1\" data-name=\"Layer 1\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"#FF7000\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"><defs><style>.cls-1{fill:none;stroke:#FF7000;stroke-miterlimit:10;stroke-width:2px;}</style></defs><polyline class=\"cls-1\" points=\"20 8.5 20 22.5 4 22.5 4 8.5\"></polyline><polyline class=\"cls-1\" points=\"23 10.5 12 1.5 1 10.5\"></polyline><polygon class=\"cls-1\" points=\"15 12.5 12 12.5 12 9.5 9 13.5 12 13.5 12 16.5 15 12.5\"></polygon></g></svg>",
             "icon_text": ""
           }
         },
@@ -966,7 +966,7 @@
           "settings": {
             "title": "Un geste simple, une tranquillité durable :",
             "description": "Commandez une fois, soyez prêt pour des années. La sérénité ne devrait pas attendre.",
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M6.343 6.343a8 8 0 1 0 11.314 11.314A8 8 0 0 0 6.343 6.343z\"></path><path d=\"M2 12h2M20 12h2M12 2v2M12 20v2\"></path></svg>",
+            "icon_svg": "<svg width=\"218px\" height=\"218px\" viewbox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"\"><g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g><g id=\"SVGRepo_tracerCarrier\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></g><g id=\"SVGRepo_iconCarrier\"> <path d=\"M4.56499 12.4068C4.29258 12.0947 3.81879 12.0626 3.50676 12.335C3.19472 12.6074 3.1626 13.0812 3.43501 13.3932L4.56499 12.4068ZM7.14286 16.5L6.57787 16.9932C6.7203 17.1564 6.92629 17.25 7.14286 17.25C7.35942 17.25 7.56542 17.1564 7.70784 16.9932L7.14286 16.5ZM15.565 7.99324C15.8374 7.68121 15.8053 7.20742 15.4932 6.93501C15.1812 6.6626 14.7074 6.69472 14.435 7.00676L15.565 7.99324ZM10.5064 11.5068C10.234 11.8188 10.2662 12.2926 10.5782 12.565C10.8902 12.8374 11.364 12.8053 11.6364 12.4932L10.5064 11.5068ZM9.67213 14.7432C9.94454 14.4312 9.91242 13.9574 9.60039 13.685C9.28835 13.4126 8.81457 13.4447 8.54215 13.7568L9.67213 14.7432ZM3.43501 13.3932L6.57787 16.9932L7.70784 16.0068L4.56499 12.4068L3.43501 13.3932ZM7.70784 16.9932L9.67213 14.7432L8.54215 13.7568L6.57787 16.0068L7.70784 16.9932ZM11.6364 12.4932L13.6007 10.2432L12.4707 9.25676L10.5064 11.5068L11.6364 12.4932ZM13.6007 10.2432L15.565 7.99324L14.435 7.00676L12.4707 9.25676L13.6007 10.2432Z\" fill=\"#ff7000\"></path> <path d=\"M20.0002 7.5625L15.7144 12.0625M11.0002 16L11.4286 16.5625L13.5715 14.3125\" stroke=\"#ff7000\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path> </g></svg>",
             "icon_text": ""
           }
         }

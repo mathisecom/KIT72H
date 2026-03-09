@@ -609,6 +609,174 @@
         "input_text_color": "#142740"
       }
     },
+    "kitdetail_mjPXyw": {
+      "type": "kitdetail",
+      "blocks": {
+        "item_Y3rzpB": {
+          "type": "item",
+          "settings": {
+            "qty": "1×",
+            "icon": "🎒",
+            "name": "Sac à dos tactique compartimenté",
+            "sub": "25L · Résistant à l'eau",
+            "num_bg": ""
+          }
+        },
+        "item_9jg6Fy": {
+          "type": "item",
+          "settings": {
+            "qty": "1×",
+            "icon": "💡",
+            "name": "Lanterne LED",
+            "sub": "Autonomie longue durée",
+            "num_bg": ""
+          }
+        },
+        "item_WpiXee": {
+          "type": "item",
+          "settings": {
+            "qty": "1×",
+            "icon": "💧",
+            "name": "Filtration d'eau",
+            "sub": "Système 4 000 litres",
+            "num_bg": ""
+          }
+        },
+        "item_DqmT6L": {
+          "type": "item",
+          "settings": {
+            "qty": "1×",
+            "icon": "📻",
+            "name": "Radio d'urgence solaire",
+            "sub": "10 000 mAh · Manivelle · SOS",
+            "num_bg": ""
+          }
+        },
+        "item_rcat4X": {
+          "type": "item",
+          "settings": {
+            "qty": "1×",
+            "icon": "🩹",
+            "name": "Trousse premiers secours",
+            "sub": "108 pièces",
+            "num_bg": ""
+          }
+        },
+        "item_UBLnEz": {
+          "type": "item",
+          "settings": {
+            "qty": "10×",
+            "icon": "🍫",
+            "name": "Rations de survie",
+            "sub": "12 000 cal · Conservation 20 ans",
+            "num_bg": ""
+          }
+        },
+        "item_6ffzAF": {
+          "type": "item",
+          "settings": {
+            "qty": "2×",
+            "icon": "🌡️",
+            "name": "Couvertures de survie",
+            "sub": "Légères et compactes",
+            "num_bg": ""
+          }
+        },
+        "item_aVVchU": {
+          "type": "item",
+          "settings": {
+            "qty": "+6",
+            "icon": "🔧",
+            "name": "Corde, couteau, bâtons, sifflets…",
+            "sub": "Allume-feu · Paracord · Lingettes",
+            "num_bg": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_Y3rzpB",
+        "item_9jg6Fy",
+        "item_WpiXee",
+        "item_DqmT6L",
+        "item_rcat4X",
+        "item_UBLnEz",
+        "item_6ffzAF",
+        "item_aVVchU"
+      ],
+      "name": "Kit — Contenu détaillé",
+      "settings": {
+        "bg_color": "#ffffff",
+        "max_width": 1100,
+        "padding_v": 20,
+        "padding_h": 24,
+        "columns_gap": 64,
+        "reverse_columns": false,
+        "breakpoint": 768,
+        "mobile_image_order": "-1",
+        "image": "shopify://shop_images/Gemini_Generated_Image_ofl544ofl544ofl5_1.jpg",
+        "image_ratio": "4/5",
+        "image_radius": 24,
+        "show_deco": true,
+        "deco_color": "#ff7000",
+        "show_badge": true,
+        "badge_text": "Kit complet 72H",
+        "badge_bg": "#142740",
+        "badge_color": "#ffffff",
+        "badge_dot_color": "#ff7000",
+        "show_bubble": false,
+        "bubble_emoji": "🎒",
+        "bubble_label": "Articles inclus",
+        "bubble_value": "13 équipements",
+        "bubble_bg": "#ffffff",
+        "bubble_val_color": "#142740",
+        "tag": "Contenu détaillé",
+        "tag_color": "#ff7000",
+        "tag_size": 11,
+        "tag_mb": 14,
+        "show_tag_line": true,
+        "title": "Tout ce qu'il vous faut,",
+        "title_accent": "dans un seul sac",
+        "title_tag": "h2",
+        "title_size": 38,
+        "title_weight": "700",
+        "title_color": "#142740",
+        "title_accent_color": "#ff7000",
+        "title_mb": 12,
+        "lead": "13 équipements essentiels sélectionnés pour couvrir chaque besoin critique des premières 72 heures. Rien de superflu, rien qui manque.",
+        "lead_color": "#64748b",
+        "lead_size": 15,
+        "lead_mb": 32,
+        "item_bg": "#F2F4F7",
+        "item_border_hover": "#E4E8EF",
+        "item_radius": 12,
+        "item_pad_v": 12,
+        "item_pad_h": 16,
+        "items_gap": 10,
+        "list_mb": 36,
+        "num_bg": "#1F3A5F",
+        "num_color": "#ffffff",
+        "icon_size": 18,
+        "item_name_color": "#142740",
+        "item_name_size": 14,
+        "item_sub_color": "#64748b",
+        "item_sub_size": 12,
+        "check_bg": "#e8f5ee",
+        "check_color": "#22c55e",
+        "show_counter": false,
+        "counter_from": "#142740",
+        "counter_to": "#1F3A5F",
+        "counter_radius": 14,
+        "counter_pad": 16,
+        "counter_num_color": "#F59E0B",
+        "counter_num_size": 22,
+        "counter_1_num": "13",
+        "counter_1_label": "Équipements",
+        "counter_2_num": "72h",
+        "counter_2_label": "Autonomie",
+        "counter_3_num": "2 pers.",
+        "counter_3_label": "Capacité"
+      }
+    },
     "media_with_text_MWbj3x": {
       "type": "media-with-text",
       "blocks": {
@@ -744,11 +912,10 @@
         "feature_4kygRn",
         "feature_CDdzHV"
       ],
-      "disabled": true,
       "name": "Features 4K",
       "settings": {
         "max_width": 1300,
-        "section_padding_v": 60,
+        "section_padding_v": 0,
         "section_padding_h": 40,
         "columns_gap": 48,
         "image_width": 44,
@@ -1080,6 +1247,7 @@
     "timeline72_LEbbFP",
     "essentialkit_RkLUGQ",
     "featured_product_cqdxpP",
+    "kitdetail_mjPXyw",
     "media_with_text_MWbj3x",
     "text_with_icons_Lcrmha",
     "section_image_4baUJ9",

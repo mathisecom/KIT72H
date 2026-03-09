@@ -776,6 +776,46 @@
         "counter_3_label": "Capacité"
       }
     },
+    "rich_text_A6T4DF": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_rB7prQ": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_DJtcy8": {
+          "type": "heading",
+          "settings": {
+            "text": "Heading",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_PVcLQq": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_rB7prQ",
+        "heading_DJtcy8",
+        "richtext_PVcLQq"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "#ff7000",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    },
     "media_with_text_MWbj3x": {
       "type": "media-with-text",
       "blocks": {
@@ -881,8 +921,8 @@
         "feature_KLAAdM": {
           "type": "feature",
           "settings": {
-            "title": "Des images nettes en toutes circonstances :",
-            "description": "Résolution 4K Ultra HD pour des photos et vidéos d'une clarté exceptionnelle.",
+            "title": "Prêt en quelques secondes :",
+            "description": "Tout est déjà réuni et organisé. Pas de panique, pas de recherche. Vous agissez immédiatement.",
             "icon_svg": "",
             "icon_text": "4K"
           }
@@ -890,8 +930,8 @@
         "feature_4kygRn": {
           "type": "feature",
           "settings": {
-            "title": "Vision nocturne invisible :",
-            "description": "Grâce à l'infrarouge 940 nm, capturez des images haute résolution sans flash ni lueur visible.",
+            "title": "Autonome quand ça compte :",
+            "description": "En cas de coupure, d'évacuation ou de crise, vous ne dépendez de personne pour protéger votre famille.",
             "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z\"></path><circle cx=\"12\" cy=\"12\" r=\"3\"></circle></svg>",
             "icon_text": "4K"
           }
@@ -899,8 +939,8 @@
         "feature_CDdzHV": {
           "type": "feature",
           "settings": {
-            "title": "Détection de mouvement intelligente :",
-            "description": "La caméra de chasse se déclenche dès qu'un animal ou un mouvement est détecté.",
+            "title": "Un geste simple, une tranquillité durable :",
+            "description": "Commandez une fois, soyez prêt pour des années. La sérénité ne devrait pas attendre.",
             "icon_svg": "<svg viewbox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"12\" cy=\"12\" r=\"3\"></circle><path d=\"M6.343 6.343a8 8 0 1 0 11.314 11.314A8 8 0 0 0 6.343 6.343z\"></path><path d=\"M2 12h2M20 12h2M12 2v2M12 20v2\"></path></svg>",
             "icon_text": "4K"
           }
@@ -915,9 +955,9 @@
       "settings": {
         "max_width": 1300,
         "section_padding_v": 0,
-        "section_padding_h": 40,
-        "columns_gap": 48,
-        "image_width": 44,
+        "section_padding_h": 24,
+        "columns_gap": 40,
+        "image_width": 42,
         "reverse_columns": false,
         "mobile_image_bottom": false,
         "breakpoint": 768,
@@ -926,6 +966,7 @@
         "heading_color": "#142740",
         "title_color": "#142740",
         "text_color": "#142740",
+        "image": "shopify://shop_images/WhatsApp_Image_2025-12-01_at_05.55.15.webp",
         "image_radius": 6,
         "show_badge": false,
         "badge_line1": "4K",
@@ -1247,6 +1288,7 @@
     "essentialkit_RkLUGQ",
     "featured_product_cqdxpP",
     "kitdetail_mjPXyw",
+    "rich_text_A6T4DF",
     "media_with_text_MWbj3x",
     "text_with_icons_Lcrmha",
     "section_image_4baUJ9",

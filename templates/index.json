@@ -616,6 +616,62 @@
         "input_text_color": "#142740"
       }
     },
+    "featuresbar_3VzzgQ": {
+      "type": "featuresbar",
+      "blocks": {
+        "feature_VpM96m": {
+          "type": "feature",
+          "settings": {
+            "icon": "camera",
+            "text": "CONÇU PAR DES EXPERTS DES SITUATIONS D'URGENCE"
+          }
+        },
+        "feature_gKLCMe": {
+          "type": "feature",
+          "settings": {
+            "icon": "check",
+            "text": "TESTÉ & APPROUVÉ PAR DES PROFESSIONNELS"
+          }
+        },
+        "feature_HHcHd6": {
+          "type": "feature",
+          "settings": {
+            "icon": "medal",
+            "text": "EQUIPEMENT 100% ROBUSTE"
+          }
+        },
+        "feature_Uaq3We": {
+          "type": "feature",
+          "settings": {
+            "icon": "droplet",
+            "text": "SAC COMPLÈTEMENT ÉTANCHE"
+          }
+        },
+        "feature_Wa4yCi": {
+          "type": "feature",
+          "settings": {
+            "icon": "activity",
+            "text": "100% PRÊT À L'USAGE / 0% D'ENTRETIEN"
+          }
+        }
+      },
+      "block_order": [
+        "feature_VpM96m",
+        "feature_gKLCMe",
+        "feature_HHcHd6",
+        "feature_Uaq3We",
+        "feature_Wa4yCi"
+      ],
+      "name": "Barre de caractéristiques",
+      "settings": {
+        "background_color": "#ffffff",
+        "text_color": "#1a1a1a",
+        "icon_color": "#1a1a1a",
+        "border_color": "#ffffff",
+        "padding_vertical": 30,
+        "font_size": 11
+      }
+    },
     "kitdetail_mjPXyw": {
       "type": "kitdetail",
       "blocks": {
@@ -1319,6 +1375,7 @@
     "timeline72_LEbbFP",
     "essentialkit_RkLUGQ",
     "featured_product_cqdxpP",
+    "featuresbar_3VzzgQ",
     "kitdetail_mjPXyw",
     "rich_text_A6T4DF",
     "scrolling_text_ffn6X7",

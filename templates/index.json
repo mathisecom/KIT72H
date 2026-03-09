@@ -495,6 +495,12 @@
             "show_taxes_notice": false
           }
         },
+        "text_C7UCgx": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Face aux crises du quotidien, <strong>Monkit72H</strong> réunit l'essentiel pour traverser les premières <strong>72 heures en toute autonomie</strong>. Simple, complet, prêt à l'emploi.</p>"
+          }
+        },
         "liquid_7Necbe": {
           "type": "liquid",
           "settings": {
@@ -579,6 +585,7 @@
         "liquid_xrwBGz",
         "title_mK8hgw",
         "price_EbJxN3",
+        "text_C7UCgx",
         "liquid_7Necbe",
         "variant_picker_zNV4wj",
         "quantity_selector_8f8T9Q",

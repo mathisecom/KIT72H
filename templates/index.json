@@ -792,7 +792,7 @@
           "type": "heading",
           "settings": {
             "text": "On regrette toujours de ne pas s’être préparé… jamais de l’avoir fait.",
-            "heading_tag": "h4",
+            "heading_tag": "h5",
             "text_color": "",
             "gradient": ""
           }

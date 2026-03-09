@@ -1,0 +1,1023 @@
+{% comment %}
+  Section : Contenu détaillé du kit
+  Fichier  : sections/kit-detail.liquid
+{% endcomment %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  #shopify-section-{{ section.id }} .kit-d {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_v }}px {{ section.settings.padding_h }}px;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ section.settings.columns_gap }}px;
+    align-items: center;
+    {% if section.settings.reverse_columns %}direction: rtl;{% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__inner > * {
+    {% if section.settings.reverse_columns %}direction: ltr;{% endif %}
+  }
+
+  /* ══ IMAGE ══ */
+  #shopify-section-{{ section.id }} .kit-d__media {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__deco {
+    position: absolute;
+    top: -16px; right: -16px;
+    width: 80px; height: 80px;
+    border: 3px solid {{ section.settings.deco_color }};
+    border-radius: 16px;
+    opacity: .5;
+    z-index: 0;
+    {% unless section.settings.show_deco %}display: none;{% endunless %}
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__frame {
+    position: relative;
+    border-radius: {{ section.settings.image_radius }}px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #e8f0f8 0%, #d0dff0 100%);
+    aspect-ratio: {{ section.settings.image_ratio }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Badge */
+  #shopify-section-{{ section.id }} .kit-d__badge {
+    position: absolute;
+    top: 20px; left: 20px;
+    background: {{ section.settings.badge_bg }};
+    color: {{ section.settings.badge_color }};
+    font-family: 'Epilogue', sans-serif;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: .08em; text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 50px;
+    display: flex; align-items: center; gap: 6px;
+    box-shadow: 0 4px 16px rgba(20,39,64,.3);
+    z-index: 2;
+    {% unless section.settings.show_badge %}display: none !important;{% endunless %}
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__badge::before {
+    content: '';
+    width: 7px; height: 7px; border-radius: 50%;
+    background: {{ section.settings.badge_dot_color }};
+    flex-shrink: 0;
+  }
+
+  /* Bulle */
+  #shopify-section-{{ section.id }} .kit-d__bubble {
+    position: absolute;
+    bottom: 24px; right: -18px;
+    background: {{ section.settings.bubble_bg }};
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px rgba(31,58,95,.18);
+    display: flex; align-items: center; gap: 12px;
+    min-width: 180px;
+    z-index: 2;
+    {% unless section.settings.show_bubble %}display: none !important;{% endunless %}
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__bubble-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, #fff3cd, #fde68a);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__bubble-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; color: #64748b; font-weight: 500;
+    text-transform: uppercase; letter-spacing: .05em;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__bubble-val {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px; font-weight: 900;
+    color: {{ section.settings.bubble_val_color }};
+    line-height: 1;
+  }
+
+  /* ══ CONTENU ══ */
+  #shopify-section-{{ section.id }} .kit-d__tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    color: {{ section.settings.tag_color }};
+    font-size: {{ section.settings.tag_size }}px;
+    font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: {{ section.settings.tag_mb }}px;
+  }
+
+  {% if section.settings.show_tag_line %}
+  #shopify-section-{{ section.id }} .kit-d__tag::before {
+    content: '';
+    width: 24px; height: 2px;
+    background: {{ section.settings.tag_color }};
+    border-radius: 1px; display: inline-block;
+  }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .kit-d__title {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+    color: {{ section.settings.title_color }};
+    line-height: 1.15;
+    margin-bottom: {{ section.settings.title_mb }}px;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__title-accent {
+    color: {{ section.settings.title_accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__lead {
+    font-family: 'DM Sans', sans-serif;
+    font-size: {{ section.settings.lead_size }}px;
+    font-weight: 300;
+    color: {{ section.settings.lead_color }};
+    line-height: 1.7;
+    margin-bottom: {{ section.settings.lead_mb }}px;
+  }
+
+  /* ══ ITEMS ══ */
+  #shopify-section-{{ section.id }} .kit-d__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.items_gap }}px;
+    margin-bottom: {{ section.settings.list_mb }}px;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: {{ section.settings.item_pad_v }}px {{ section.settings.item_pad_h }}px;
+    background: {{ section.settings.item_bg }};
+    border-radius: {{ section.settings.item_radius }}px;
+    border: 1px solid transparent;
+    transition: border-color .2s, background .2s, transform .15s;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item:hover {
+    background: {{ section.settings.bg_color }};
+    border-color: {{ section.settings.item_border_hover }};
+    box-shadow: 0 4px 16px rgba(31,58,95,.07);
+    transform: translateX(4px);
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-num {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 10px; font-weight: 900;
+    background: {{ section.settings.num_bg }};
+    color: {{ section.settings.num_color }};
+    width: 26px; height: 26px; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; letter-spacing: .02em;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-icon {
+    font-size: {{ section.settings.icon_size }}px;
+    flex-shrink: 0; width: 30px; text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-body { flex: 1; min-width: 0; }
+
+  #shopify-section-{{ section.id }} .kit-d__item-name {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.item_name_size }}px;
+    font-weight: 600;
+    color: {{ section.settings.item_name_color }};
+    line-height: 1.3;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: {{ section.settings.item_sub_size }}px;
+    color: {{ section.settings.item_sub_color }};
+    margin-top: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-check {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: {{ section.settings.check_bg }};
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__item-check svg {
+    width: 11px; height: 11px;
+    stroke: {{ section.settings.check_color }};
+    stroke-width: 2.5; fill: none;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+
+  /* ══ COMPTEUR ══ */
+  #shopify-section-{{ section.id }} .kit-d__counter {
+    display: flex;
+    gap: 12px;
+    padding: {{ section.settings.counter_pad }}px 20px;
+    background: linear-gradient(135deg, {{ section.settings.counter_from }}, {{ section.settings.counter_to }});
+    border-radius: {{ section.settings.counter_radius }}px;
+    {% unless section.settings.show_counter %}display: none;{% endunless %}
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__counter-item {
+    flex: 1; text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__counter-num {
+    font-family: 'Epilogue', sans-serif;
+    font-size: {{ section.settings.counter_num_size }}px;
+    font-weight: 900;
+    color: {{ section.settings.counter_num_color }};
+    display: block; line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__counter-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; color: rgba(255,255,255,.5);
+    text-transform: uppercase; letter-spacing: .06em;
+    margin-top: 4px; display: block;
+  }
+
+  #shopify-section-{{ section.id }} .kit-d__counter-sep {
+    width: 1px; background: rgba(255,255,255,.1); flex-shrink: 0;
+  }
+
+  /* ══ RESPONSIVE ══ */
+  @media screen and (max-width: {{ section.settings.breakpoint }}px) {
+    #shopify-section-{{ section.id }} .kit-d {
+      padding: {{ section.settings.padding_v | divided_by: 1.4 | round }}px {{ section.settings.padding_h | divided_by: 1.5 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .kit-d__inner {
+      grid-template-columns: 1fr;
+      gap: {{ section.settings.columns_gap | divided_by: 1.6 | round }}px;
+      direction: ltr;
+    }
+    #shopify-section-{{ section.id }} .kit-d__media {
+      order: {{ section.settings.mobile_image_order }};
+    }
+    #shopify-section-{{ section.id }} .kit-d__frame {
+      aspect-ratio: 16/9;
+      border-radius: {{ section.settings.image_radius | times: 0.75 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .kit-d__bubble {
+      right: 12px; bottom: -16px; min-width: 160px;
+    }
+    #shopify-section-{{ section.id }} .kit-d__title {
+      font-size: {{ section.settings.title_size | times: 0.75 | round }}px;
+    }
+    #shopify-section-{{ section.id }} .kit-d__item {
+      padding: 11px 14px;
+    }
+    #shopify-section-{{ section.id }} .kit-d__item-sub {
+      display: none;
+    }
+    #shopify-section-{{ section.id }} .kit-d__counter-num {
+      font-size: {{ section.settings.counter_num_size | minus: 4 }}px;
+    }
+  }
+</style>
+
+<section class="kit-d">
+  <div class="kit-d__inner">
+
+    {%- comment %} ══ COLONNE IMAGE ══ {%- endcomment %}
+    <div class="kit-d__media">
+      <div class="kit-d__deco"></div>
+
+      <div class="kit-d__frame">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 800 }}"
+            alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+            class="kit-d__img"
+            width="800"
+            loading="lazy"
+          >
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'kit-d__img' }}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_badge and section.settings.badge_text != blank -%}
+        <div class="kit-d__badge">{{ section.settings.badge_text }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.show_bubble -%}
+        <div class="kit-d__bubble">
+          <div class="kit-d__bubble-icon">{{ section.settings.bubble_emoji }}</div>
+          <div>
+            <div class="kit-d__bubble-label">{{ section.settings.bubble_label }}</div>
+            <div class="kit-d__bubble-val">{{ section.settings.bubble_value }}</div>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment %} ══ COLONNE CONTENU ══ {%- endcomment %}
+    <div class="kit-d__content">
+
+      {%- if section.settings.tag != blank -%}
+        <div class="kit-d__tag">{{ section.settings.tag }}</div>
+      {%- endif -%}
+
+      {%- if section.settings.title != blank -%}
+        <{{ section.settings.title_tag }} class="kit-d__title">
+          {{ section.settings.title }}
+          {%- if section.settings.title_accent != blank -%}
+            <br><span class="kit-d__title-accent">{{ section.settings.title_accent }}</span>
+          {%- endif -%}
+        </{{ section.settings.title_tag }}>
+      {%- endif -%}
+
+      {%- if section.settings.lead != blank -%}
+        <p class="kit-d__lead">{{ section.settings.lead }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ul class="kit-d__list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'item' -%}
+              <li class="kit-d__item" {{ block.shopify_attributes }}>
+                {%- if block.settings.qty != blank -%}
+                  <div class="kit-d__item-num"
+                    style="{% if block.settings.num_bg != blank %}background:{{ block.settings.num_bg }};{% endif %}">
+                    {{ block.settings.qty }}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.icon != blank -%}
+                  <div class="kit-d__item-icon">{{ block.settings.icon }}</div>
+                {%- endif -%}
+                <div class="kit-d__item-body">
+                  {%- if block.settings.name != blank -%}
+                    <div class="kit-d__item-name">{{ block.settings.name }}</div>
+                  {%- endif -%}
+                  {%- if block.settings.sub != blank -%}
+                    <div class="kit-d__item-sub">{{ block.settings.sub }}</div>
+                  {%- endif -%}
+                </div>
+                <div class="kit-d__item-check">
+                  <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {%- if section.settings.show_counter -%}
+        <div class="kit-d__counter">
+          {%- if section.settings.counter_1_num != blank -%}
+            <div class="kit-d__counter-item">
+              <span class="kit-d__counter-num">{{ section.settings.counter_1_num }}</span>
+              <span class="kit-d__counter-label">{{ section.settings.counter_1_label }}</span>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.counter_2_num != blank -%}
+            <div class="kit-d__counter-sep"></div>
+            <div class="kit-d__counter-item">
+              <span class="kit-d__counter-num">{{ section.settings.counter_2_num }}</span>
+              <span class="kit-d__counter-label">{{ section.settings.counter_2_label }}</span>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.counter_3_num != blank -%}
+            <div class="kit-d__counter-sep"></div>
+            <div class="kit-d__counter-item">
+              <span class="kit-d__counter-num">{{ section.settings.counter_3_num }}</span>
+              <span class="kit-d__counter-label">{{ section.settings.counter_3_label }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kit — Contenu détaillé",
+  "tag": "section",
+  "class": "section-kit-detail",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🎨 Fond & Mise en page"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Couleur de fond",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur max (px)",
+      "min": 700,
+      "max": 1400,
+      "step": 20,
+      "default": 1100
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Espacement vertical (px)",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_h",
+      "label": "Espacement horizontal (px)",
+      "min": 8,
+      "max": 80,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Espace entre colonnes (px)",
+      "min": 16,
+      "max": 120,
+      "step": 4,
+      "default": 64
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_columns",
+      "label": "Image à droite",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "breakpoint",
+      "label": "Breakpoint mobile (px)",
+      "min": 480,
+      "max": 1024,
+      "step": 16,
+      "default": 768
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_order",
+      "label": "Position image sur mobile",
+      "options": [
+        { "value": "-1", "label": "En haut" },
+        { "value": "1",  "label": "En bas" }
+      ],
+      "default": "-1"
+    },
+    {
+      "type": "header",
+      "content": "🖼️ Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image principale"
+    },
+    {
+      "type": "text",
+      "id": "image_ratio",
+      "label": "Ratio image (ex: 4/5, 1/1, 3/4)",
+      "default": "4/5"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Arrondi de l'image (px)",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "🔶 Décoration image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_deco",
+      "label": "Afficher le carré décoratif",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "deco_color",
+      "label": "Couleur déco",
+      "default": "#FDE68A"
+    },
+    {
+      "type": "header",
+      "content": "🏷️ Badge sur l'image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Afficher le badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texte du badge",
+      "default": "Kit complet 72H"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg",
+      "label": "Fond du badge",
+      "default": "#142740"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Couleur texte badge",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "badge_dot_color",
+      "label": "Couleur point du badge",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "header",
+      "content": "💬 Bulle flottante"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bubble",
+      "label": "Afficher la bulle",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bubble_emoji",
+      "label": "Emoji de la bulle",
+      "default": "🎒"
+    },
+    {
+      "type": "text",
+      "id": "bubble_label",
+      "label": "Label de la bulle",
+      "default": "Articles inclus"
+    },
+    {
+      "type": "text",
+      "id": "bubble_value",
+      "label": "Valeur de la bulle",
+      "default": "13 équipements"
+    },
+    {
+      "type": "color",
+      "id": "bubble_bg",
+      "label": "Fond de la bulle",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bubble_val_color",
+      "label": "Couleur valeur bulle",
+      "default": "#142740"
+    },
+    {
+      "type": "header",
+      "content": "🏷️ Tag"
+    },
+    {
+      "type": "text",
+      "id": "tag",
+      "label": "Texte du tag",
+      "default": "Contenu détaillé"
+    },
+    {
+      "type": "color",
+      "id": "tag_color",
+      "label": "Couleur du tag",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "range",
+      "id": "tag_size",
+      "label": "Taille du tag (px)",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "range",
+      "id": "tag_mb",
+      "label": "Espace sous le tag (px)",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_line",
+      "label": "Ligne décorative avant le tag",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "✍️ Titre"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre (ligne 1)",
+      "default": "Tout ce qu'il vous faut,"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Titre accent (ligne 2, en couleur)",
+      "default": "dans un seul sac"
+    },
+    {
+      "type": "select",
+      "id": "title_tag",
+      "label": "Balise HTML",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Taille du titre (px)",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 38
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Graisse du titre",
+      "options": [
+        { "value": "700", "label": "Bold" },
+        { "value": "800", "label": "Extra-Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "900"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Couleur du titre",
+      "default": "#142740"
+    },
+    {
+      "type": "color",
+      "id": "title_accent_color",
+      "label": "Couleur de l'accent",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "range",
+      "id": "title_mb",
+      "label": "Espace sous le titre (px)",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "📝 Introduction"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Texte d'introduction",
+      "default": "13 équipements essentiels sélectionnés pour couvrir chaque besoin critique des premières 72 heures. Rien de superflu, rien qui manque."
+    },
+    {
+      "type": "color",
+      "id": "lead_color",
+      "label": "Couleur du texte intro",
+      "default": "#64748b"
+    },
+    {
+      "type": "range",
+      "id": "lead_size",
+      "label": "Taille du texte intro (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "lead_mb",
+      "label": "Espace sous l'intro (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "📋 Liste des items"
+    },
+    {
+      "type": "color",
+      "id": "item_bg",
+      "label": "Fond des items",
+      "default": "#F2F4F7"
+    },
+    {
+      "type": "color",
+      "id": "item_border_hover",
+      "label": "Bordure au survol",
+      "default": "#E4E8EF"
+    },
+    {
+      "type": "range",
+      "id": "item_radius",
+      "label": "Arrondi des items (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_pad_v",
+      "label": "Padding vertical item (px)",
+      "min": 6,
+      "max": 28,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_pad_h",
+      "label": "Padding horizontal item (px)",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "items_gap",
+      "label": "Espace entre les items (px)",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "list_mb",
+      "label": "Espace sous la liste (px)",
+      "min": 8,
+      "max": 60,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "num_bg",
+      "label": "Fond badge quantité",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "color",
+      "id": "num_color",
+      "label": "Couleur texte quantité",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Taille des emojis (px)",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "default": 18
+    },
+    {
+      "type": "color",
+      "id": "item_name_color",
+      "label": "Couleur nom item",
+      "default": "#142740"
+    },
+    {
+      "type": "range",
+      "id": "item_name_size",
+      "label": "Taille nom item (px)",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "item_sub_color",
+      "label": "Couleur sous-titre item",
+      "default": "#64748b"
+    },
+    {
+      "type": "range",
+      "id": "item_sub_size",
+      "label": "Taille sous-titre item (px)",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "check_bg",
+      "label": "Fond de la coche",
+      "default": "#e8f5ee"
+    },
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Couleur de la coche",
+      "default": "#22c55e"
+    },
+    {
+      "type": "header",
+      "content": "📊 Barre compteur"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_counter",
+      "label": "Afficher la barre compteur",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "counter_from",
+      "label": "Dégradé — couleur départ",
+      "default": "#142740"
+    },
+    {
+      "type": "color",
+      "id": "counter_to",
+      "label": "Dégradé — couleur arrivée",
+      "default": "#1F3A5F"
+    },
+    {
+      "type": "range",
+      "id": "counter_radius",
+      "label": "Arrondi compteur (px)",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "counter_pad",
+      "label": "Padding vertical compteur (px)",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "counter_num_color",
+      "label": "Couleur des chiffres",
+      "default": "#F59E0B"
+    },
+    {
+      "type": "range",
+      "id": "counter_num_size",
+      "label": "Taille des chiffres (px)",
+      "min": 14,
+      "max": 36,
+      "step": 2,
+      "default": 22
+    },
+    {
+      "type": "text",
+      "id": "counter_1_num",
+      "label": "Compteur 1 — Valeur",
+      "default": "13"
+    },
+    {
+      "type": "text",
+      "id": "counter_1_label",
+      "label": "Compteur 1 — Label",
+      "default": "Équipements"
+    },
+    {
+      "type": "text",
+      "id": "counter_2_num",
+      "label": "Compteur 2 — Valeur",
+      "default": "72h"
+    },
+    {
+      "type": "text",
+      "id": "counter_2_label",
+      "label": "Compteur 2 — Label",
+      "default": "Autonomie"
+    },
+    {
+      "type": "text",
+      "id": "counter_3_num",
+      "label": "Compteur 3 — Valeur",
+      "default": "2 pers."
+    },
+    {
+      "type": "text",
+      "id": "counter_3_label",
+      "label": "Compteur 3 — Label",
+      "default": "Capacité"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Article du kit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "qty",
+          "label": "Quantité (ex: 1×, 10×, +6)",
+          "default": "1×"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji icône",
+          "default": "🎒"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nom de l'article",
+          "default": "Sac à dos tactique compartimenté"
+        },
+        {
+          "type": "text",
+          "id": "sub",
+          "label": "Sous-titre (détails)",
+          "default": "25L · Résistant à l'eau"
+        },
+        {
+          "type": "color",
+          "id": "num_bg",
+          "label": "Couleur fond badge quantité (override)",
+          "info": "Laissez vide pour la couleur globale"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kit — Contenu détaillé",
+      "blocks": [
+        { "type": "item", "settings": { "qty": "1×", "icon": "🎒", "name": "Sac à dos tactique compartimenté", "sub": "25L · Résistant à l'eau" } },
+        { "type": "item", "settings": { "qty": "1×", "icon": "💡", "name": "Lanterne LED", "sub": "Autonomie longue durée" } },
+        { "type": "item", "settings": { "qty": "1×", "icon": "💧", "name": "Filtration d'eau", "sub": "Système 4 000 litres" } },
+        { "type": "item", "settings": { "qty": "1×", "icon": "📻", "name": "Radio d'urgence solaire", "sub": "10 000 mAh · Manivelle · SOS" } },
+        { "type": "item", "settings": { "qty": "1×", "icon": "🩹", "name": "Trousse premiers secours", "sub": "108 pièces" } },
+        { "type": "item", "settings": { "qty": "10×", "icon": "🍫", "name": "Rations de survie", "sub": "12 000 cal · Conservation 20 ans" } },
+        { "type": "item", "settings": { "qty": "2×", "icon": "🌡️", "name": "Couvertures de survie", "sub": "Légères et compactes" } },
+        { "type": "item", "settings": { "qty": "+6", "icon": "🔧", "name": "Corde, couteau, bâtons, sifflets…", "sub": "Allume-feu · Paracord · Lingettes" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

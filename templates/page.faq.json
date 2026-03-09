@@ -1,1 +1,125 @@
-{"sections":{"main":{"type":"main-page","settings":{}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_width": "80ch"
+      }
+    },
+    "faq_kQMFkV": {
+      "type": "faq",
+      "blocks": {
+        "item_QFzRVm": {
+          "type": "item",
+          "settings": {
+            "title": "Qu'est-ce que le Kit72H ?",
+            "content": "<p>Le Kit72H est un sac d'urgence complet conçu pour vous permettre d'être autonome pendant les premières 72 heures d'une situation de crise. Il regroupe 13 équipements essentiels sélectionnés pour couvrir vos besoins en eau, lumière, communication, premiers secours et alimentation</p>"
+          }
+        },
+        "item_93qdbP": {
+          "type": "item",
+          "settings": {
+            "title": "Pourquoi 72 heures ?",
+            "content": "<p>Les autorités de sécurité civile recommandent à chaque foyer d'être capable de subvenir à ses besoins pendant au moins 72 heures sans aide extérieure. C'est le temps généralement nécessaire pour que les secours s'organisent et que les approvisionnements reprennent après une crise.</p>"
+          }
+        },
+        "item_erecLh": {
+          "type": "item",
+          "settings": {
+            "title": "À qui s'adresse ce kit ?",
+            "content": "<p>À toute personne souhaitant se préparer simplement et efficacement, que vous viviez en ville ou à la campagne, seul ou en famille. Aucune connaissance en survie n'est nécessaire.</p>"
+          }
+        },
+        "item_EkTxrV": {
+          "type": "item",
+          "settings": {
+            "title": "Le kit est-il adapté pour deux personnes ?",
+            "content": "<p>Oui, le Kit72H est conçu pour couvrir les besoins d'une à deux personnes pendant 72 heures. Pour une famille plus nombreuse, nous recommandons de commander plusieurs kits ou de compléter avec des options supplémentaires.</p>"
+          }
+        },
+        "item_nHbUcb": {
+          "type": "item",
+          "settings": {
+            "title": "Quel est le délai de livraison ?",
+            "content": "<p>Votre commande est préparée sous 24 heures ouvrées et livrée en 5 à 12 jours. Vous recevez un numéro de suivi par email dès l'expédition.</p>"
+          }
+        },
+        "item_7d3BXm": {
+          "type": "item",
+          "settings": {
+            "title": "La livraison est-elle offerte ?",
+            "content": "<p>Oui, la livraison est offerte sur toutes les commandes.</p>"
+          }
+        },
+        "item_JNkbeb": {
+          "type": "item",
+          "settings": {
+            "title": "Est-ce que je peux suivre ma commande ?",
+            "content": "<p>Oui. Un email de suivi vous est envoyé dès que votre colis est expédié. Vous pouvez suivre sa progression en temps réel.</p>"
+          }
+        },
+        "item_Dnk4tb": {
+          "type": "item",
+          "settings": {
+            "title": "Dans quels pays livrez-vous ?",
+            "content": "<p>Nous livrons en France métropolitaine. Pour toute autre destination, contactez-nous via la page Contact.</p>"
+          }
+        },
+        "item_tbYqiX": {
+          "type": "item",
+          "settings": {
+            "title": "Le produit est-il garanti ?",
+            "content": "<p>Oui. Le kit bénéficie d'une garantie de 2 ans contre tout défaut de fabrication. En cas de problème, contactez notre service client et nous trouverons une solution rapide.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_QFzRVm",
+        "item_93qdbP",
+        "item_erecLh",
+        "item_EkTxrV",
+        "item_nHbUcb",
+        "item_7d3BXm",
+        "item_JNkbeb",
+        "item_Dnk4tb",
+        "item_tbYqiX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Questions Fréquentes",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "Temps moyen de réponse : 24H",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_kQMFkV"
+  ]
+}
